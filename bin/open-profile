@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ~/bin/eww open-many blur_full pfp date files bspwm sxhkd eww picom home

@@ -1,0 +1,181 @@
+<eww>
+    <definitions>
+        <def name="blur_full">
+            <box class="blur_full" orientation="v" space-evenly="true">
+            </box>
+        </def>
+        <def name="pfp">
+            <box class="pfp" orientation="v">
+                <image path="/home/uday/.config/eww/images/pfp.jpg" width="180" height="200"/>
+                <box class="name" orientation="v">
+                <box class="uname">Sedulous</box>
+                <box class="hostname">@arch</box>
+            </box>
+            </box>
+        </def>
+        <def name="home">
+                <box class="sxhkd"><button onclick="code $HOME">HOME</button></box>            
+        </def>
+        <def name="bspwm">
+                <box class="bspwm"><button onclick="code $HOME/.config/bspwm/bspwmrc">BSPWM</button></box>            
+        </def>
+        <def name="sxhkd">
+                <box class="sxhkd"><button onclick="code $HOME/.config/sxhkd/sxhkdrc">SXHKD</button></box>            
+        </def>
+        <def name="picom">
+                <box class="picom"><button onclick="code $HOME/.config/picom/">PICOM</button></box>            
+        </def>
+        <def name="eww">
+                <box class="eww"><button onclick="code $HOME/.config/eww/">EWW</button></box>            
+        </def>
+
+        <def name="files">
+            <box class="files" orientation="h">
+            </box>
+        </def>
+        <def name="date">
+            <box class="date">
+                <box class="clock">{{hour}}</box><box class="colon">:</box><box class="minutes">{{minutes}}</box>
+            </box>
+        </def>
+        <def name="workspaces">
+            <box orientation="h" class="workspaces" space-evenly="true" halign="start"> <!-- Your workspaces.-->
+            <button onclick="wmctrl -s 0"></button>
+            <button onclick="wmctrl -s 1"></button>
+            <button onclick="wmctrl -s 2"></button>
+            <button onclick="wmctrl -s 3"></button>
+            <button onclick="wmctrl -s 4"></button>
+            </box>
+        </def>
+        <def name="applist-horizontal">
+            <box orientation="h" class="applist-horizontal" space-evenly="true" halign="start"> <!-- Your workspaces.-->
+                <box orientation="h" class="firefox" space-evenly="true" halign="start">
+                    <button onclick="firefox"></button>
+                </box>
+                <box orientation="h" class="terminal" space-evenly="true" halign="start">
+                    <button onclick="alacritty"></button>
+                </box>
+                <box orientation="h" class="code" space-evenly="true" halign="start">
+                    <button onclick="code"></button>
+                </box>
+                <box orientation="h" class="settings" space-evenly="true" halign="start">
+                    <button onclick="exec gnome-control-center"></button>
+                </box>
+                <box orientation="h" class="files" space-evenly="true" halign="start">
+                    <button onclick="exec nautilus"></button>
+                </box>
+            </box>
+        </def>
+    </definitions>
+
+
+
+    <variables>
+        <script-var name="song" interval="500ms">mpc current</script-var>
+        <script-var name="desktop" interval="500ms">bspc query -D -d focused --names</script-var>
+        <script-var name="volume" interval="1s">pamixer --get-volume</script-var>
+
+        <script-var name="packages" interval="1s">yay -Q | wc -l</script-var>
+        <script-var name="updates" interval="30m">yay -Qu | wc -l</script-var>
+
+        <script-var name="uptime" interval="1s">uptime -p | cut -b 4-999</script-var>
+        <script-var name="cpu" interval="1s">LC_ALL=C top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}'</script-var>
+        <script-var name="memory" interval="1s">free -m | awk 'NR==2{printf "%s/%s MB\n", $3,$2,$3*100/$2 }'</script-var>
+        <script-var name="disk" interval="30s">df -h / | awk '/\// {print $(NF-1)}'</script-var>
+
+        <script-var name="user" interval="10m">echo $USER | sed -e "s/\b\(.\)/\u\1/g"</script-var>
+        <script-var name="hour" interval="300ms">date +"%H"</script-var>
+        <script-var name="colon" interval="300ms">:</script-var>
+        <script-var name="minutes" interval="300ms">date +"%M"</script-var>
+        <script-var name="weather" interval="5m">ansiweather -w false -h false -s false -d false -a false -l dubai -p false -i false | cut -c 20- | sed 's/.$//'</script-var>
+    </variables>
+
+
+
+    <windows>
+        <!-- Profile -->
+        <window name="pfp" stacking="fg" focusable="false">
+            <geometry anchor="center" x="-340" y="45" width="240px" height="480px"/>
+            <widget>
+                <pfp />
+            </widget>
+        </window>
+        <!-- Date -->
+        <window name="date" stacking="fg" focusable="false">
+            <geometry x="600" y="255" 
+            width="50px" height="70px"/>
+            <widget>
+                <date/>
+            </widget>
+        </window>
+        <!-- Workspace -->
+        <window name="workspaces" stacking="fg" focusable="false">
+            <geometry anchor="center" x="0" y="-427" 
+            width="10px" height="10px"/>
+            <widget>
+                <workspaces />
+            </widget>
+        </window>
+        <!-- App-List -->
+        <window name="applist-horizontal" stacking="fg" focusable="false">
+            <geometry anchor="center" x="-650" y="-427" 
+            width="10px" height="10px"/>
+            <widget>
+                <applist-horizontal />
+            </widget>
+        </window>       
+        <!-- Bspwm -->
+        <window name="bspwm" stacking="fg" focusable="false">
+            <geometry x="653" y="450" 
+            width="50px" height="50px"/>
+            <widget>
+                <bspwm/>
+            </widget>
+        </window>
+        <!-- Sxhkd -->
+        <window name="sxhkd" stacking="fg" focusable="false">
+            <geometry x="653" y="520" 
+            width="50px" height="50px"/>
+            <widget>
+                <sxhkd/>
+            </widget>
+        </window>
+        <window name="home" stacking="fg" focusable="false">
+            <geometry x="660" y="380" 
+            width="50px" height="50px"/>
+            <widget>
+                <home/>
+            </widget>
+        </window>
+        <!-- Sxhkd -->
+        <window name="picom" stacking="fg" focusable="false">
+            <geometry x="653" y="590" 
+            width="50px" height="50px"/>
+            <widget>
+                <picom/>
+            </widget>
+        </window>
+        <!-- Eww -->
+        <window name="eww" stacking="fg" focusable="false">
+            <geometry x="670" y="660" 
+            width="50px" height="50px"/>
+            <widget>
+                <eww/>
+            </widget>
+        </window>
+        <!-- Files -->
+        <window name="files" stacking="fg" focusable="false">
+            <geometry  x="600" y="340" width="210px" height="395px"/>
+            <widget>
+                <files />
+            </widget>
+        </window>
+        <!-- Blur -->
+        <window name="blur_full">
+            <geometry x="0px" y="0px" width="100%" height="100%"/>
+            <widget>
+                <blur_full/>
+            </widget>
+        </window>
+    </windows>
+</eww>

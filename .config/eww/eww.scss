@@ -1,0 +1,185 @@
+* {
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    // background-color: #15191d;
+}
+// .blur_full:blur(100px){}
+
+.uname {
+    color: #c75151;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #0b0d0f;
+    margin-top: 70px;
+}
+.hostname {
+    color: #858384;
+    font-size: 18px;
+    background-color: #0b0d0f;
+    margin-bottom: 90px;
+}
+
+.pfp {
+    background-color: #0b0d0f;
+}
+.date {
+    background-color: #0b0d0f;
+}
+.clock {
+    color: #af71ee;
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    font-weight: 900;
+    background-color: #0b0d0f;
+    font-size: 40px;
+    margin-left: 10px;
+}
+.colon {
+    color: #71ee77;
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    font-weight: 900;
+    background-color: #0b0d0f;
+    font-size: 40px;
+    margin-right: 0px;
+}
+.minutes {
+    color: #af71ee;
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    font-weight: 900;
+    background-color: #0b0d0f;
+    font-size: 40px;
+    padding-right:20px;
+}
+.files {
+    background-color: #0b0d0f;
+}
+.bspwm button{
+    font-family: "Iosevka NF", "FontAwesome:30";
+    font-weight: 800;
+    color: #4b8fd3;
+    background-color: #15191d;
+    font-size: 30px;
+    // margin-top: 10px
+}
+.bspwm :hover {
+    color: #d34b4b;    
+}
+.sxhkd button{
+    font-family: "Iosevka NF", "FontAwesome:30";
+    font-weight: 800;
+    color: #4b8fd3;
+    background-color: #15191d;
+    font-size: 30px;
+    // margin-top: 10px
+}
+.sxhkd :hover {
+    color: #d34b4b;    
+}
+.home button{
+    font-family: "Iosevka NF", "FontAwesome:30";
+    font-weight: 800;
+    color: #4b8fd3;
+    background-color: #15191d;
+    font-size: 30px;
+    // margin-top: 10px
+}
+.home :hover {
+    color: #d34b4b;    
+}
+.picom button{
+    font-family: "Iosevka NF", "FontAwesome:30";
+    font-weight: 800;
+    color: #4b8fd3;
+    background-color: #15191d;
+    font-size: 30px;
+    // margin-top: 10px
+}
+.picom :hover {
+    color: #d34b4b;    
+}
+.eww button{
+    font-family: "Iosevka NF", "FontAwesome:30";
+    font-weight: 800;
+    color: #4b8fd3;
+    background-color: #15191d;
+    font-size: 30px;
+    // margin-top: 10px
+}
+.eww :hover {
+    color: #d34b4b;    
+}
+.workspaces button {
+    color: #c8c9ca;
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    background-color: #1F252A;
+    font-size: 20px;
+    // margin-left: 7px;
+    // margin-right: 7px;
+  }
+
+.workspaces {
+    background-color: #1F252A;
+    // margin-top: -10px;
+    // margin-bottom: -10px;
+}
+.workspaces button:hover {
+    color: #1353b3;
+    font-family: "FiraCode Nerd Font", "FontAwesome:30";
+    font-size: 20px;
+    background-color: #1F252A;
+    
+}
+
+.applist-horizontal {
+    background-color: #15181b;
+}
+
+.firefox button {
+    background-color: #15181b;
+    color: #e08925;
+    font-size: 35px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.firefox {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    // margin-left: 10px;
+    // margin-right: 10px;
+
+}
+
+.terminal {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    
+}
+.terminal button {
+    background-color: #15181b;
+    color: #6b6b6b;
+    font-size: 35px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.code {
+    margin-top: -10px;
+    margin-bottom: -10px;
+
+}
+.code button {
+    background-color: #15181b;
+    color: #3ea5e9;
+    font-size: 35px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.settings {
+    margin-top: -10px;
+    margin-bottom: -10px;
+
+}
+.settings button {
+    background-color: #15181b;
+    color: #45b16e;
+    font-size: 35px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
