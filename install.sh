@@ -17,6 +17,8 @@ read -p "$(tput setaf 3) 5. Install Video Codecs Packages? (y/n) $(tput setaf 7)
 read -p "$(tput setaf 3) 6. Install AppImage installer? (y/n) $(tput setaf 7) :: " appimageResp
 read -p "$(tput setaf 3) 7. Install AnyType? (y/n) $(tput setaf 7) :: " anytypeResp
 read -p "$(tput setaf 3) 8. Install Overdrive Downloader? (y/n) $(tput setaf 7) :: " overdriveResp
+read -p "$(tput setaf 3) 9. Install Docker? (y/n) $(tput setaf 7) :: " dockerResp
+
 # clear
 
 echo "$(tput setaf 3) [*] Updating the system first!...Please Wait!$(tput setaf 7)"
@@ -60,7 +62,7 @@ install_yay
 
 install_optionalPackages() {
     if [[ $optResp = "y" || $optResp = "" ]]; then
-        yay -S --noconfirm --needed scrcpy visual-studio-code-bin network-manager-applet arandr lxappearance polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme pulseaudio bluez-utils netctl htop pfetch firefox-nightly chromium tldr obs-studio telegram-desktop-bin 
+        yay -S --noconfirm --needed scrcpy visual-studio-code-bin network-manager-applet arandr lxappearance polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme pulseaudio bluez-utils netctl htop pfetch firefox-nightly brave-bin tldr obs-studio telegram-desktop-bin qbittorrent protonvpn p7zip
         systemctl enable bluetooth
         systemctl start bluetooth
         # clear
@@ -127,6 +129,17 @@ install_overdriveDownloader() {
     fi
 }
 install_overdriveDownloader
+
+install_docker() {
+    if [[ $dockerResp = "y" || $dockerResp = "" ]]; then
+        sudo pacman -S docker
+        systemctl start docker.service
+        systemctl enable docker.service || groupadd docker || gpasswd -a $(whoami) docker
+    else
+        break
+    fi  
+}
+install_docker
 
 sleep 5
 # clear
