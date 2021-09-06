@@ -229,6 +229,7 @@ install_windowManagerfiles() {
         break
     else
         continue
+    fi
 }
 sleep 5
 # clear
