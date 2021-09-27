@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  unstable = import <unstable> { config.allowUnfree = true; };
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz";
+  #unstable = import <unstable> { config.allowUnfree = true; };
 in
 {
   imports = [
     (import "${home-manager}/nixos")
   ];
 
-  home-manager.users.my_username = {
+  home-manager.users.uday = {
     programs.home-manager.enable = true;
     programs.bat.enable = true;
 
@@ -21,9 +21,8 @@ in
       pkgs.handlr
       pkgs.htop
       pkgs.neofetch
-      pkgs.gitFull
       pkgs.flatpak
-      unstable.anytype
+      #unstable.anytype
     ];
 
     programs.git = {

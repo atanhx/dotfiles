@@ -14,8 +14,6 @@ sudo rm -r /etc/nixos
 sudo git clone https://github.com/<handle>/dotfiles.git ~/
 
 sudo ln -s ~/dotfiles/etc/nixos /etc/nixos
-
-sudo ln -s ~/dotfiles/.config/nixpkgs ~/.config/nixpkgs
 ```
 
 Add Home Manager and Unstable Channels
@@ -32,10 +30,20 @@ Install from the new config.
 ```bash
 sudo nixos-rebuild switch
 
-home-manger switch
-
 reboot
 ```
+
+Install Home-Manger
+```bash
+nix-shell '<home-manager>' -A install
+
+rm -rf ~/.config/nixpkgs
+
+ln -s ~/dotfiles/nixpkgs ~/.config/nixpkgs
+
+home-manger switch
+```
+
 Installing Fonts (Optional)
 ```bash
 sudo cp -r /home/$(whoami)/dotfiles/.local/share/fonts /home/$(whoami)/.local/share/
