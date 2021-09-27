@@ -11,11 +11,11 @@ Backup the hardware config and install the repo to `/etc/nixos`
 
 sudo rm -r /etc/nixos
 
-sudo git clone https://github.com/<handle>/dotfiles.git /home/$(whoami)
+sudo git clone https://github.com/<handle>/dotfiles.git ~/
 
-sudo cp -r /home/$(whoami)/dotfiles/etc/nixos /etc/
+sudo ln -s ~/dotfiles/etc/nixos /etc/nixos
 
-sudo cp -r /home/$(whoami)/dotfiles/.config/nixpkgs /home/$(whoami)/.config
+sudo ln -s ~/dotfiles/.config/nixpkgs ~/.config/nixpkgs
 ```
 
 Add Home Manager and Unstable Channels
