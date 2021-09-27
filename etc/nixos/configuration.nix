@@ -3,9 +3,8 @@
         ./common.nix
         ./envSysPackages.nix
         ./hardware-configuration.nix
+        #./home.nix
     ];
-
-    nix.nixPath = [ "nixos-config=/etc/nixos/configuration.nix" ];
 
     ### Using the systemd-boot EFI boot loader here.
     boot.loader.systemd-boot.enable = true;
