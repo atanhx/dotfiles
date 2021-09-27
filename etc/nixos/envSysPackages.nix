@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-with lib
+with lib;
 
 {
     config = {
@@ -29,7 +29,6 @@ with lib
       pkgs.vscode
       pkgs.materia-theme
       pkgs.papirus-icon-theme
-  ];
-
+        ];
     };
 }
