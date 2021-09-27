@@ -1,14 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
+{ config, pkgs, ... }:
 
 {
     config = {
+
     programs.mtr.enable = true;
-    programs.gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-    };
+    
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       vim
@@ -29,6 +25,6 @@ with lib;
       pkgs.vscode
       pkgs.materia-theme
       pkgs.papirus-icon-theme
-        ];
+      ];
     };
 }
