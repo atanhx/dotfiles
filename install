@@ -30,10 +30,6 @@ install_xorg() {
 }
 install_xorg
 
-echo "================"
-echo "$(tput setaf 5) [*] Xorg Installed$(tput setaf 7)"
-echo "================"
-sleep 5
 
 install_font() {
     if [[ $fontResp = "y" || $fontResp = "" ]]; then
@@ -48,10 +44,6 @@ install_font() {
 }
 install_font
 
-echo "================"
-echo "$(tput setaf 5) [*] Fonts Copied & Installed$(tput setaf 7)"
-echo "================"
-sleep 5
 
 install_yay() {
     if [[ $yayResp = "y" || $yayResp = "" ]]; then
@@ -66,10 +58,7 @@ install_yay() {
 }
 install_yay
 
-echo "================"
-echo "$(tput setaf 5) [*] Yay Installed$(tput setaf 7)"
-echo "================"
-sleep 5
+
 
 install_overdriveDownloader() {
     if [[ $overdriveResp = "y" || $overdriveResp = "" ]]; then
@@ -88,10 +77,6 @@ install_overdriveDownloader() {
 }
 install_overdriveDownloader
 
-echo "================"
-echo "$(tput setaf 5) [*] Overdrive Downloader Installed$(tput setaf 7)"
-echo "================"
-sleep 5
 
 install_docker() {
     if [[ $dockerResp = "y" || $dockerResp = "" ]]; then
@@ -106,14 +91,10 @@ install_docker() {
 }
 install_docker
 
-echo "================"
-echo "$(tput setaf 5) [*] Docker Installed$(tput setaf 7)"
-echo "================"
-sleep 5
 
 install_snapStore() {
     if [[ $snapStore = "y" || $snapStore = "" ]]; then
-        mkdir -p ~/Sorces
+        mkdir -p ~/Sources
         git clone https://aur.archlinux.org/snapd.git ~/Sorces/snapd
         (cd ~/Sorces/snapd/ && makepkg -si)
         sudo systemctl enable --now snapd.socket
@@ -124,15 +105,12 @@ install_snapStore() {
         continue
     fi
 }
+install_snapStore
 
-echo "================"
-echo "$(tput setaf 5) [*] Snap Store Installed$(tput setaf 7)"
-echo "================"
-sleep 5
 
 install_otherPackages() {
 	if [[ $othPkg = "y" || $othPkg = "" ]]; then
-		yay -Syu firefox brave-bin visual-studio-code-bin telegram-desktop-bin discord scrcpy network-manager-applet arandr lxappearance-gtk3 polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme pulseaudio bluez-utils netctl htop neofetch tldr obs-studio qbittorrent protonvpn p7zip alacarte buleman chrome-gnome-shell gnome-keyring seahorse picom-ibhagwan-git
+		yay -Syu firefox brave-bin visual-studio-code-bin telegram-desktop-bin discord scrcpy network-manager-applet arandr lxappearance-gtk3 polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme pulseaudio bluez-utils netctl htop neofetch tldr obs-studio qbittorrent protonvpn p7zip alacarte blueman chrome-gnome-shell gnome-keyring seahorse picom-ibhagwan-git
 
 		sudo pacman -Syu bash-completion cronie android-tools android-file-transfer faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore vlc
 	elif [[ $othPkg -eq "n" ]]; then
@@ -144,15 +122,14 @@ install_otherPackages() {
 }
 install_otherPackages
 
-echo "================"
-echo "$(tput setaf 5) [*] Other Packages Installed$(tput setaf 7)"
-echo "================"
-sleep 5
+
 
 install_windowManagerfiles() {
     if [[ $wmResp = "y" || $wmResp = "" ]]; then
         sudo pacman -S awesome xfce4-power-manager rofi xclip feh alacritty dunst
-        gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/wallpapers/room.png" 
+        gsettings set org.gnome.desktop.background picture-uri "file://$(pwd)/wallpapers/room.png"
+        sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+        echo -e 'eval "$(starship init bash)"' > ~/.bashrc 
     elif [[ $xorgResp -eq "n" ]]; then
         echo "$(tput setaf 3) [*] Not instaling WM settings $(tput setaf 7)"
     else
@@ -161,10 +138,7 @@ install_windowManagerfiles() {
 }
 install_windowManagerfiles
 
-echo "================"
-echo "$(tput setaf 5) [*] WM Settings Installed$(tput setaf 7)"
-echo "================"
-sleep 5
+
 
 set_githubSettings() {
     git config --global user.name "<handle>"
@@ -174,23 +148,18 @@ set_githubSettings() {
 }
 set_githubSettings
 
-echo "================"
-echo "$(tput setaf 5) [*] Github Settings Applied$(tput setaf 7)"
-echo "================"
-sleep 5
+
 
 install_clion() {
     if [[ $clionResp = "y" || $clionResp = "" ]]; then
-        sudo pacman -S clion
+        sudo yay -S clion
     elif [[ $clionResp -eq "n" ]]; then
         echo "$(tput setaf 3) [*] Not installing JetBrains CLion $(tput setaf 7)"
     else
         continue
     fi
 }
-echo "================"
-echo "$(tput setaf 5) [*] JetBrains CLion Installed$(tput setaf 7)"
-echo "================"
-sleep 5
+install_clion
+
 
 echo "$(tput setaf 2) [**] INSTALLATION COMPLETED SUCCESSFULLY!!! $(tput setaf 7)"
