@@ -110,7 +110,7 @@ install_snapStore
 
 install_otherPackages() {
 	if [[ $othPkg = "y" || $othPkg = "" ]]; then
-		yay -Syu firefox brave-bin visual-studio-code-bin telegram-desktop-bin discord scrcpy network-manager-applet arandr lxappearance-gtk3 polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme pulseaudio bluez-utils netctl htop neofetch tldr obs-studio qbittorrent protonvpn p7zip alacarte blueman chrome-gnome-shell gnome-keyring seahorse picom-ibhagwan-git cursor-theme-macos-big-sur 
+		yay -Syu firefox brave-bin visual-studio-code-bin telegram-desktop-bin discord scrcpy network-manager-applet arandr lxappearance-gtk3 polkit-gnome acpi sysstat pavucontrol scrot materia-gtk-theme papirus-icon-theme netctl htop neofetch tldr obs-studio qbittorrent protonvpn p7zip alacarte chrome-gnome-shell gnome-keyring seahorse picom-ibhagwan-git cursor-theme-macos-big-sur 
 
 		sudo pacman -Syu bash-completion cronie android-tools android-file-transfer faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore vlc
 	elif [[ $othPkg -eq "n" ]]; then
@@ -152,7 +152,7 @@ set_githubSettings
 
 install_clion() {
     if [[ $clionResp = "y" || $clionResp = "" ]]; then
-        sudo yay -S clion
+        yay -S clion
     elif [[ $clionResp -eq "n" ]]; then
         echo "$(tput setaf 3) [*] Not installing JetBrains CLion $(tput setaf 7)"
     else
