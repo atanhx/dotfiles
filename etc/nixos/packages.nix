@@ -17,6 +17,7 @@
       firefox
       systemd
       libinput
+      pkgs.direnv
       pkgs.nmap
       pkgs.tmux
       pkgs.curlFull

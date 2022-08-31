@@ -20,6 +20,9 @@ in
       pkgs.neofetch
       pkgs.flatpak
       pkgs.discord
+      pkgs.google-chrome
+      pkgs.gnomeExtensions.appindicator
+      pkgs.gnomeExtensions.dash-to-dock
     ];
 
     programs.git = {
