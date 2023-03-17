@@ -1,7 +1,10 @@
 # Dotfiles
 
 > **Warning**
+> 
 > Install the packages according to your own distribution.
+
+
 
 Clone the repo
 ```bash
