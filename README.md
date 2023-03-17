@@ -46,5 +46,15 @@ home-manager switch
 
 Installing Fonts (Optional)
 ```bash
-sudo cp -r /home/$(whoami)/dotfiles/.local/share/fonts /home/$(whoami)/.local/share/
+cp -r ~/dotfiles/.local/share/fonts ~/.local/share/
+```
+
+For Other distribution use the necessary bash script.
+```bash
+## Arch Based Only
+yay -S $(cat ~/dotfiles/pkgs.txt | cut -d' ' -f1)
+
+chmod +x ~/dotfiles/install.sh
+
+~/dotfiles/install.sh
 ```

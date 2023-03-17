@@ -1,0 +1,27 @@
+window:
+  opacity: 0.92
+  dynamic_title: true
+  padding:
+    x: 16
+    y: 16
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+  size: 13
+
+mouse:
+  hide_when_typing: false

@@ -1,0 +1,61 @@
+window {
+  font-family: CaskaydiaCove NF;
+  font-size: 30px;
+  color: #e2e2e2;
+  background-color: #1d1d1d;
+}
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  border: 2px;
+  border-radius: 10px;
+  background-color: rgb(37, 37, 37);
+  margin: 5px;
+  transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #1d1d1d;
+}
+
+button:focus {
+  background-color: #4a7ea1;
+  color: #1d1d1d;
+}
+
+#lock {
+  background-image: image(url("./lock.png"));
+}
+#lock:focus {
+  background-image: image(url("./lock-hover.png"));
+}
+
+#logout {
+  background-image: image(url("./logout.png"));
+}
+#logout:focus {
+  background-image: image(url("./logout-hover.png"));
+}
+
+#suspend {
+  background-image: image(url("./sleep.png"));
+}
+#suspend:focus {
+  background-image: image(url("./sleep-hover.png"));
+}
+
+#shutdown {
+  background-image: image(url("./power.png"));
+}
+#shutdown:focus {
+  background-image: image(url("./power-hover.png"));
+}
+
+#reboot {
+  background-image: image(url("./restart.png"));
+}
+#reboot:focus {
+  background-image: image(url("./restart-hover.png"));
+}

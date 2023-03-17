@@ -1,0 +1,6 @@
+hyprland
+wlogout
+waybar
+wofi
+dunst
+alacritty

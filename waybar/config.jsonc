@@ -1,0 +1,108 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 0,
+  "modules-left": ["custom/tray", "wlr/workspaces", "tray"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "keyboard-state",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+    "custom/powermenu"
+  ],
+
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "default": "1"
+    },
+    "all-outputs": false,
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+
+  "custom/powermenu": {
+    "format": "⏻",
+    "on-click": "wlogout -b 2",
+    "tooltip": false
+  },
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "hyprland/window": {
+    "format": " <span>{:.40}</span> ",
+    "separate-outputs": false
+  },
+
+  "tray": {
+    "icon-size": 13,
+    "spacing": 5,
+    "on-click": "echo 'hi'"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "{:%Y/%m/%d %H:%M:%S}",
+    "format-alt": "{:%B %d, %Y}"
+  },
+  "battery": {
+    "states": {
+      "warning": 15,
+      "critical": 5
+    },
+    "format": "{capacity}% {icon} ",
+    "format-charging": "{capacity}%   ",
+    "format-plugged": "{capacity}%   ",
+    "format-icons": ["󰁺", "󰁼", "󰁿", "󰂀", "󰁹"]
+  },
+  "network": {
+    "format-wifi": "{essid} 󰤨",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{ifname} on {essid} via {gwaddr} 󰈀",
+    "format-linked": "No IP 󰈀",
+    "format-disconnected": "Disconnected 󰤭",
+    "on-click": "gnome-control-center"
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{volume}% {icon}  {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "󰟎 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "Click to open volume settings",
+    "on-click": "pavucontrol"
+  },
+  "custom/tray": {
+    "format": " oven",
+    "on-click": "alacritty --hold -e neofetch"
+  }
+}

@@ -1,0 +1,91 @@
+* {
+  border: none;
+  font-family: "CaskaydiaCove NF";
+  font-size: 15px;
+  box-shadow: none;
+  text-shadow: none;
+  transition-duration: 0s;
+}
+
+window#waybar {
+  color: #d3c6aa;
+  background-color: #1e2326;
+  border: none;
+}
+
+#workspaces,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#clock,
+#custom-powermenu,
+#custom-tray,
+#keyboard-state,
+#tray {
+  margin: 5px 3px 6px 3px;
+  padding: 2px 11px 0 10px;
+  background: #414b50;
+  border-radius: 12px;
+}
+
+#pulseaudio {
+  color: #e69875;
+  padding-right: 12px;
+}
+#clock {
+  color: #dbbc7f;
+  padding-right: 10px;
+  padding-left: 9px;
+}
+#battery {
+  color: #83c092;
+  padding-right: 1px;
+}
+#network {
+  color: #7fbbb3;
+  padding-right: 15px;
+  padding-left: 9.5px;
+}
+#custom-powermenu {
+  color: #e67e80;
+  padding-right: 14.8px;
+}
+#custom-tray {
+  color: #b175fc;
+  padding-right: 14.8px;
+  margin-left: 10px;
+}
+#keyboard-state {
+  font-size: 13px;
+  color: #a7c080;
+  padding-right: 14.8px;
+}
+#workspaces {
+  font-family: "CaskaydiaCove NF";
+  font-size: 13px;
+  color: #d3c6aa;
+}
+
+/* #workspaces button {
+  padding: 0 10px; 
+} */
+
+#workspaces button.active {
+  border-radius: 12px;
+  color: #1e2326;
+  background-color: #a7c080;
+}
+
+#workspaces button:hover {
+  border-radius: 12px;
+}
+
+#window {
+  font-family: "CaskaydiaCove NF";
+  font-size: 13px;
+  color: #414b50;
+  margin-left: 20px;
+  margin-right: 20px;
+}
