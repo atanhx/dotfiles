@@ -1,7 +1,7 @@
 # Dotfiles
 
 > **Warning**
-> Install the pacakges according to your own distribution.
+> Install the packages according to your own distribution.
 
 Clone the repo
 ```bash
