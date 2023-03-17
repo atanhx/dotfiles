@@ -1,4 +1,25 @@
-# NixOS Configuration
+# Dotfiles
+
+> **Warning**
+> Install the pacakges according to your own distribution.
+
+Clone the repo
+```bash
+git clone https://github.com/<handle>/dotfiles.git ~/
+```
+
+Use the install script provided in the directory
+```bash
+## Packages are arch based only. Install them according to your own system.
+yay -S $(cat ~/dotfiles/pkgs.txt | cut -d' ' -f1)
+
+chmod +x ~/dotfiles/install.sh
+
+~/dotfiles/install.sh
+```
+
+
+## NixOS Configuration (Independent of above step)
 
 Installing Git
 ```bash
@@ -11,7 +32,7 @@ Backup the hardware config and install the repo to `/etc/nixos`
 
 sudo rm -r /etc/nixos
 
-sudo git clone https://github.com/<handle>/dotfiles.git ~/
+git clone https://github.com/<handle>/dotfiles.git ~/
 
 sudo ln -s ~/dotfiles/etc/nixos /etc/nixos
 ```
@@ -49,12 +70,3 @@ Installing Fonts (Optional)
 cp -r ~/dotfiles/.local/share/fonts ~/.local/share/
 ```
 
-For Other distribution use the necessary bash script.
-```bash
-## Arch Based Only
-yay -S $(cat ~/dotfiles/pkgs.txt | cut -d' ' -f1)
-
-chmod +x ~/dotfiles/install.sh
-
-~/dotfiles/install.sh
-```
