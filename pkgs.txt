@@ -4,3 +4,4 @@ waybar
 wofi
 dunst
 alacritty
+nwg-look
