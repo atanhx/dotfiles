@@ -26,7 +26,6 @@
       pkgs.docker-compose
       pkgs.obs-studio
       pkgs.vscode
-      pkgs.materia-theme
       pkgs.papirus-icon-theme
       ];
     };
