@@ -1,17 +1,17 @@
 # Dotfiles
 
 > **Warning**
-> 
+>
 > Install the packages according to your own distribution.
 
+Clone the repo to ~/
 
-
-Clone the repo
 ```bash
 git clone https://github.com/<handle>/dotfiles.git ~/
 ```
 
 Use the install script provided in the directory
+
 ```bash
 ## Packages are arch based only. Install them according to your own system.
 yay -S $(cat ~/dotfiles/pkgs.txt | cut -d' ' -f1)
@@ -21,15 +21,16 @@ chmod +x ~/dotfiles/install.sh
 ~/dotfiles/install.sh
 ```
 
-
 ## NixOS Configuration (Independent of above step)
 
 Installing Git
+
 ```bash
 nix-env -iA pkgs.git
 ```
 
 Backup the hardware config and install the repo to `/etc/nixos`
+
 ```bash
 # !!! Backup the /etc/nixos/hardware-configuration.nix
 
@@ -41,6 +42,7 @@ sudo ln -s ~/dotfiles/etc/nixos /etc/nixos
 ```
 
 Add Home Manager and Unstable Channels
+
 ```bash
 nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 
@@ -58,6 +60,7 @@ reboot
 ```
 
 Install Home-Manger
+
 ```bash
 nix-shell '<home-manager>' -A install
 
@@ -69,7 +72,7 @@ home-manager switch
 ```
 
 Installing Fonts (Optional)
+
 ```bash
 cp -r ~/dotfiles/.local/share/fonts ~/.local/share/
 ```
-
