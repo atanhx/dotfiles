@@ -74,5 +74,5 @@ home-manager switch
 Installing Fonts (Optional)
 
 ```bash
-cp -r ~/dotfiles/.local/share/fonts ~/.local/share/
+ln -s ~/dotfiles/.local/share/fonts ~/.local/share/
 ```
