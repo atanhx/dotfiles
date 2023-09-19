@@ -2,7 +2,7 @@ hyprland
 hpypaper
 wlogout
 waybar-hyprland-git
-ttf-twemoji-color-git
+ttf-twemoji-color14
 wofi
 dunst
 alacritty
