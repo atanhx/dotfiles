@@ -3,7 +3,7 @@
   "position": "top",
   "height": 25,
   "spacing": 0,
-  "modules-left": ["custom/tray", "wlr/workspaces", "tray"],
+  "modules-left": ["custom/tray", "hyprland/workspaces", "tray"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "keyboard-state",
@@ -14,7 +14,7 @@
     "custom/powermenu"
   ],
 
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
@@ -69,7 +69,7 @@
       "critical": 5
     },
     "format": "{capacity}% {icon} ",
-    "format-charging": "{capacity}%   ",
+    "format-charging": "{capacity}%  󰂄 ",
     "format-plugged": "{capacity}%   ",
     "format-icons": ["󰁺", "󰁼", "󰁿", "󰂀", "󰁹"]
   },
@@ -79,7 +79,7 @@
     "tooltip-format": "{ifname} on {essid} via {gwaddr} 󰈀",
     "format-linked": "No IP 󰈀",
     "format-disconnected": "Disconnected 󰤭",
-    "on-click": "gnome-control-center"
+    "on-click": "nmtui"
   },
   "pulseaudio": {
     "scroll-step": 5,

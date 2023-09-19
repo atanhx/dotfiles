@@ -1,6 +1,6 @@
 * {
   border: none;
-  font-family: "CaskaydiaCove NF";
+  font-family: "CaskaydiaCove Nerd Font";
   font-size: 15px;
   box-shadow: none;
   text-shadow: none;
@@ -67,10 +67,6 @@ window#waybar {
   font-size: 13px;
   color: #d3c6aa;
 }
-
-/* #workspaces button {
-  padding: 0 10px; 
-} */
 
 #workspaces button.active {
   border-radius: 12px;
