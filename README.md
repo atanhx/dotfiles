@@ -19,11 +19,6 @@ Details about the setup:
 
 More screenshots are under `/assets/` directory.
 
----
-
-> **Warning**
->
-> You may need to adjust the screen resolution and waybar widgets postion manually as they are _**most**_ likely to change on your device.
 
 ## Installation:
 
@@ -65,6 +60,9 @@ After running this, it will create a _soft link_ from the `dotfiles` to `~/.conf
 Tada! now you installed the theme.
 
 You can switch you session and see if it works!
+> **NOTE**
+>
+> You may need to adjust the screen resolution and waybar widgets postion manually as they are _**most**_ likely to change on your device.
 
 #### NixOS Configuration (totally independent, not for WM):
 
