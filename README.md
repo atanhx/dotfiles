@@ -19,7 +19,6 @@ Details about the setup:
 
 More screenshots are under `/assets/` directory.
 
-
 ## Installation:
 
 The installion is divided into two parts
@@ -27,7 +26,7 @@ The installion is divided into two parts
 1. **Arch** (which installs and links the whole config with packages and theme)
 2. **NixOS** (doesn't install anything - **not recommended**)
 
-#### Arch Based Configuration:
+### Arch Based Configuration:
 
 Clone the repo to ~/dev/ (if you want to change the location then make sure to update the paths in `install.sh`)
 
@@ -57,14 +56,15 @@ chmod +x ~/dev/dotfiles/install.sh
 
 After running this, it will create a _soft link_ from the `dotfiles` to `~/.config/*` folder. Again, this was optional.
 
-Tada! now you installed the theme.
+Tada! now you've installed the theme.
 
-You can switch you session and see if it works!
+You can switch your session and see if it works!
+
 > **NOTE**
 >
 > You may need to adjust the screen resolution and waybar widgets postion manually as they are _**most**_ likely to change on your device.
 
-#### NixOS Configuration (totally independent, not for WM):
+### NixOS Configuration (totally independent, not for WM):
 
 Installing Git (most likely is installed on newer version)
 
