@@ -1,29 +1,74 @@
-# Dotfiles
+# dotfiles
+
+<img src="./assets/example.png" alt="img" align="right" width="400px">
+
+Details about the setup:
+
+- **OS**: Endeavour OS
+- **WM**: [Hyprland](https://github.com/hyprwm/Hyprland)
+- **Shell**: [bash](https://wiki.archlinux.org/title/bash)
+- **Browser**: Firefox
+- **Bar**: [waybar](https://github.com/Alexays/Waybar)
+- **Shell Theme**: [Starship](https://starship.rs)
+- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty)
+- **Editor**: [VS Code](https://code.visualstudio.com/) (Everforest Theme from marketplace)
+- **Launcher**: [Wofi](https://hg.sr.ht/~scoopta/wofi)
+- **Notification**: [Dunst](https://github.com/dunst-project/dunst)
+- **Logout Screen**: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
+- **Fonts**: See `pkgs.txt` file
+
+More screenshots are under `/assets/` directory.
+
+---
 
 > **Warning**
 >
-> Install the packages according to your own distribution.
+> You may need to adjust the screen resolution and waybar widgets postion manually as they are _**most**_ likely to change on your device.
 
-Clone the repo to ~/
+## Installation:
+
+The installion is divided into two parts
+
+1. **Arch** (which installs and links the whole config with packages and theme)
+2. **NixOS** (doesn't install anything - **not recommended**)
+
+#### Arch Based Configuration:
+
+Clone the repo to ~/dev/ (if you want to change the location then make sure to update the paths in `install.sh`)
 
 ```bash
-git clone https://github.com/<handle>/dotfiles.git ~/
+mkdir -p ~/dev/
+
+cd ~/dev/
+
+git clone https://github.com/<handle>/dotfiles.git
 ```
 
-Use the install script provided in the directory
+Now, lets install the packages
 
 ```bash
-## Packages are arch based only. Install them according to your own system.
-yay -S $(cat ~/dotfiles/pkgs.txt | cut -d' ' -f1)
-
-chmod +x ~/dotfiles/install.sh
-
-~/dotfiles/install.sh
+## Packages in pkgs.txt are for arch based distros only. Install them according to your own system.
+yay -S $(cat ~/dev/dotfiles/pkgs.txt | cut -d' ' -f1)
 ```
 
-## NixOS Configuration (Independent of above step)
+Now, use the install script to link the folders inside `dotfiles` to your `.config` directory.
 
-Installing Git
+```bash
+# Note that this is an optional step. If you don't want to use it then you can manually copy paste the files like normal.
+chmod +x ~/dev/dotfiles/install.sh
+
+~/dev/dotfiles/install.sh
+```
+
+After running this, it will create a _soft link_ from the `dotfiles` to `~/.config/*` folder. Again, this was optional.
+
+Tada! now you installed the theme.
+
+You can switch you session and see if it works!
+
+#### NixOS Configuration (totally independent, not for WM):
+
+Installing Git (most likely is installed on newer version)
 
 ```bash
 nix-env -iA pkgs.git
@@ -33,20 +78,25 @@ Backup the hardware config and install the repo to `/etc/nixos`
 
 ```bash
 # !!! Backup the /etc/nixos/hardware-configuration.nix
+sudo cp -r /etc/nixos/hardware-configuration.nix ~/Downloads/
 
+# Remove the base configs
 sudo rm -r /etc/nixos
 
-git clone https://github.com/<handle>/dotfiles.git ~/
+# You might need to create ~/dev folder
+git clone https://github.com/<handle>/dotfiles.git ~/dev/
 
-sudo ln -s ~/dotfiles/etc/nixos /etc/nixos
+sudo ln -s ~/dev/dotfiles/etc/nixos /etc/nixos
 ```
+
+And now configure you nix configs from your dotfiles.
 
 Add Home Manager and Unstable Channels
 
 ```bash
 nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 
 nix-channel --update
 ```
@@ -66,13 +116,7 @@ nix-shell '<home-manager>' -A install
 
 rm -rf ~/.config/nixpkgs
 
-ln -s ~/dotfiles/nixpkgs ~/.config/nixpkgs
+ln -s ~/dev/dotfiles/nixpkgs ~/.config/nixpkgs
 
 home-manager switch
-```
-
-Installing Fonts (Optional)
-
-```bash
-ln -s ~/dotfiles/.local/share/fonts ~/.local/share/
 ```

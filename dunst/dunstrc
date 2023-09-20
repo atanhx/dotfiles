@@ -2,7 +2,7 @@
     follow = mouse
     indicate_hidden = yes
 
-    offset = 10x10
+    offset = 20x20
 
     notification_height = 0
 
@@ -13,12 +13,12 @@
     text_icon_padding = 0
     frame_width = 2
 
-    frame_color = "#535353"
+    frame_color = "#5896A7"
     separator_color = frame
 
     sort = yes
     idle_threshold = 120
-    font = monospace 10
+    font = JetBrainsMono Nerd Font 10
     line_height = 0
     markup = full
     alignment = left
@@ -31,7 +31,7 @@
     show_indicators = yes
 
     min_icon_size = 0
-    max_icon_size = 64
+    max_icon_size = 74
 
     icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/animations/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/categories/:/usr/share/icons/Papirus-Dark/16x16/emblems/:/usr/share/icons/Papirus-Dark/16x16/emotes/:/usr/share/icons/Papirus-Dark/16x16/devices/mimetypes:/usr/share/icons/Papirus-Dark/16x16/panel/:/usr/share/icons/Papirus-Dark/16x16/places/
 
@@ -39,17 +39,17 @@
     class = Dunst
 
     corner_radius = 10
-    timeout = 5
+    timeout = 20
 
 [urgency_low]
-    background = "#252525"
+    background = "#1e2326"
     foreground = "#e2e2e2"
 
 [urgency_normal]
-    background = "#252525"
+    background = "#1e2326"
     foreground = "#e2e2e2"
 
 [urgency_critical]
-    background = "#252525"
+    background = "#1e2326"
     foreground = "#e2e2e2"
     frame_color = "#e6645a"
