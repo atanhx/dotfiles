@@ -1,10 +1,11 @@
 hyprland
 hyprpaper
-hyprpicker-git
+hyprpicker
+hyprlock
 xdg-desktop-portal-wlr
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
-waybar-hyprland
+waybar
 wlogout
 wofi
 wl-clipboard
@@ -15,7 +16,10 @@ nwg-look-bin
 wev
 grim
 slurp
-ttf-twemoji-color14
+p7zip
+apple_cursor
+polkit-kde-agent 
+ttf-twemoji-color
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 ttf-cascadia-code-nerd

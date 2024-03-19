@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 25,
+  "height": 30,
   "spacing": 0,
   "modules-left": ["custom/tray", "hyprland/workspaces", "tray"],
   "modules-center": ["hyprland/window"],
@@ -48,7 +48,7 @@
     }
   },
   "hyprland/window": {
-    "format": " <span>{:.40}</span> ",
+    "format": " <span>{:.80}</span> ",
     "separate-outputs": false
   },
 
@@ -102,7 +102,7 @@
     "on-click": "pavucontrol"
   },
   "custom/tray": {
-    "format": " oven",
-    "on-click": "alacritty --hold -e neofetch"
+    "format": " GTD",
+    "on-click": "alacritty --hold -e htop"
   }
 }

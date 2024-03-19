@@ -15,7 +15,7 @@ Details about the setup:
 - **Launcher**: [Wofi](https://hg.sr.ht/~scoopta/wofi)
 - **Notification**: [Dunst](https://github.com/dunst-project/dunst)
 - **Logout Screen**: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
-- **Fonts**: See `pkgs.txt` file
+- **Fonts & Other Packages**: See `pkgs.txt` file
 
 More screenshots are under `/assets/` directory.
 
@@ -26,7 +26,7 @@ The installion is divided into two parts
 1. **Arch** (which installs and links the whole config with packages and theme)
 2. **NixOS** (doesn't install anything - **not recommended**)
 
-### Arch Based Configuration:
+### Arch Configuration:
 
 Clone the repo to ~/dev/ (if you want to change the location then make sure to update the paths in `install.sh`)
 
@@ -38,6 +38,7 @@ cd ~/dev/
 git clone https://github.com/<handle>/dotfiles.git
 ```
 
+Before installing, have a look at the `pkgs.txt` file
 Now, lets install the packages
 
 ```bash

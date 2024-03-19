@@ -5,10 +5,16 @@
   box-shadow: none;
   text-shadow: none;
   transition-duration: 0s;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  /* margin: 0px 0px 0px 0px; */
 }
 
 window#waybar {
+  
   color: #d3c6aa;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   background-color: #1e2326;
   border: none;
 }
@@ -24,20 +30,21 @@ window#waybar {
 #custom-tray,
 #keyboard-state,
 #tray {
-  margin: 5px 3px 6px 3px;
-  padding: 2px 11px 0 10px;
+  opacity: 1;
+  margin: 0px 3px 0px 3px;
+  /* padding: 0px 3px 0px 3px; */
+  padding: 0px 10px 0 10px;
   background: #414b50;
-  border-radius: 12px;
+  border-radius: 15px;
 }
 
 #pulseaudio {
   color: #e69875;
-  padding-right: 12px;
+  padding: 0 12px 0 12px;
 }
 #clock {
   color: #dbbc7f;
-  padding-right: 10px;
-  padding-left: 9px;
+  padding: 0 10px 0 10px;
 }
 #battery {
   color: #83c092;
@@ -45,12 +52,11 @@ window#waybar {
 }
 #network {
   color: #7fbbb3;
-  padding-right: 15px;
-  padding-left: 9.5px;
+  padding: 0 15px 0 9.5px;
 }
 #custom-powermenu {
   color: #e67e80;
-  padding-right: 14.8px;
+  padding: 0 14px 0 12px;
 }
 #custom-tray {
   color: #b175fc;
@@ -69,18 +75,19 @@ window#waybar {
 }
 
 #workspaces button.active {
-  border-radius: 12px;
   color: #1e2326;
+  border-radius: 12px;
   background-color: #a7c080;
 }
 
 #workspaces button:hover {
   border-radius: 12px;
+  color:#83c092;
 }
 
 #window {
   font-family: "CaskaydiaCove NF";
-  font-size: 13px;
+  font-size: 10px;
   color: #414b50;
   margin-left: 20px;
   margin-right: 20px;
