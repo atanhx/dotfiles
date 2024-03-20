@@ -16,9 +16,12 @@ nwg-look-bin
 wev
 grim
 slurp
+grimshot
+cliphist
 p7zip
 apple_cursor
 polkit-kde-agent 
+sioyek
 ttf-twemoji-color
 ttf-font-awesome
 ttf-jetbrains-mono-nerd

@@ -22,7 +22,7 @@ hide_when_typing = false
 
 [window]
 dynamic_title = true
-opacity = 0.55
+opacity = 0
 
 [window.padding]
 x = 36
