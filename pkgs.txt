@@ -22,6 +22,7 @@ p7zip
 apple_cursor
 polkit-kde-agent 
 sioyek
+inotify-tools
 ttf-twemoji-color
 ttf-font-awesome
 ttf-jetbrains-mono-nerd

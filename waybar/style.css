@@ -11,7 +11,7 @@
 }
 
 window#waybar {
-  
+
   color: #d3c6aa;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
@@ -42,32 +42,39 @@ window#waybar {
   color: #e69875;
   padding: 0 12px 0 12px;
 }
+
 #clock {
   color: #dbbc7f;
   padding: 0 10px 0 10px;
 }
+
 #battery {
   color: #83c092;
   padding-right: 1px;
 }
+
 #network {
   color: #7fbbb3;
   padding: 0 15px 0 9.5px;
 }
+
 #custom-powermenu {
   color: #e67e80;
   padding: 0 14px 0 12px;
 }
+
 #custom-tray {
   color: #b175fc;
   padding-right: 14.8px;
   margin-left: 10px;
 }
+
 #keyboard-state {
   font-size: 13px;
   color: #a7c080;
   padding-right: 14.8px;
 }
+
 #workspaces {
   font-family: "CaskaydiaCove NF";
   font-size: 13px;
@@ -82,7 +89,8 @@ window#waybar {
 
 #workspaces button:hover {
   border-radius: 12px;
-  color:#83c092;
+  color: #83c092;
+  background-color: #1e2326;
 }
 
 #window {
