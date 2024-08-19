@@ -1,29 +1,34 @@
 window {
-  font-family: CaskaydiaCove NF;
+  font-family: CaskaydiaMono Nerd Font;
   font-size: 30px;
-  color: #e2e2e2;
-  background-color: #1d1d1d;
+  background: #1b1b1b;
+  color: #a9c4d3;
+  
 }
 
 button {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25%;
-  border: 2px;
-  border-radius: 10px;
-  background-color: rgb(37, 37, 37);
-  margin: 5px;
+  background-size: 20%;
+  border: 50px;
+  border-color: #3b3b3b;
+  border-radius: 12px;
+  color: #a9c4d3;
+  background-color: #3b3b3b;
+  margin: 10px;
   transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
 }
 
 button:hover {
-  background-color: #1d1d1d;
+  background-color: #503d39;
 }
 
 button:focus {
-  background-color: #4a7ea1;
+  background-color: #d49a9a;
   color: #1d1d1d;
 }
+
 
 #lock {
   background-image: image(url("./lock.png"));

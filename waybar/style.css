@@ -1,102 +1,105 @@
+@define-color base00 #181818;
+@define-color base01 #303030;
+@define-color base02 #303030;
+@define-color base03 #585858;
+@define-color base04 #b8b8b8;
+@define-color base05 #d8d8d8;
+@define-color base06 #e8e8e8;
+@define-color base07 #f8f8f8;
+@define-color base08 #ab4642;
+@define-color base09 #dc9656;
+@define-color base0A #f7ca88;
+@define-color base0B #a1b56c;
+@define-color base0C #86c1b9;
+@define-color base0D #7cafc2;
+@define-color base0E #ba8baf;
+@define-color base0F #bd516c;
+
+
 * {
-  border: none;
-  font-family: "CaskaydiaCove Nerd Font";
-  font-size: 15px;
+  transition: none;
   box-shadow: none;
-  text-shadow: none;
-  transition-duration: 0s;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  /* margin: 0px 0px 0px 0px; */
 }
 
-window#waybar {
-
-  color: #d3c6aa;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
-  background-color: #1e2326;
-  border: none;
-}
-
-#workspaces,
-#battery,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#clock,
-#custom-powermenu,
-#custom-tray,
-#keyboard-state,
-#tray {
-  opacity: 1;
-  margin: 0px 3px 0px 3px;
-  /* padding: 0px 3px 0px 3px; */
-  padding: 0px 10px 0 10px;
-  background: #414b50;
-  border-radius: 15px;
-}
-
-#pulseaudio {
-  color: #e69875;
-  padding: 0 12px 0 12px;
-}
-
-#clock {
-  color: #dbbc7f;
-  padding: 0 10px 0 10px;
-}
-
-#battery {
-  color: #83c092;
-  padding-right: 1px;
-}
-
-#network {
-  color: #7fbbb3;
-  padding: 0 15px 0 9.5px;
-}
-
-#custom-powermenu {
-  color: #e67e80;
-  padding: 0 14px 0 12px;
-}
-
-#custom-tray {
-  color: #b175fc;
-  padding-right: 14.8px;
-  margin-left: 10px;
-}
-
-#keyboard-state {
-  font-size: 13px;
-  color: #a7c080;
-  padding-right: 14.8px;
+#waybar {
+	font-family: CaskaydiaMono Nerd Font;
+	font-size: 1em;
+	font-weight: 400;
+  color: @base04;
+  background: @base00;
 }
 
 #workspaces {
-  font-family: "CaskaydiaCove NF";
-  font-size: 13px;
-  color: #d3c6aa;
+  margin: 0 4px;
+}
+
+#workspaces button {
+  margin: 4px 0;
+  padding: 0 4px;
+  color: @base05;
+}
+
+#workspaces button.hover {
+  border-radius: 4px;
+  background: @base01;
 }
 
 #workspaces button.active {
-  color: #1e2326;
-  border-radius: 12px;
-  background-color: #a7c080;
+  border-radius: 4px;
+  background-color: @base02;
 }
 
-#workspaces button:hover {
-  border-radius: 12px;
-  color: #83c092;
-  background-color: #1e2326;
+#workspaces button.urgent {
+  color: rgba(238, 46, 36, 1);
+}
+
+#tray {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  background-color: @base02;
+}
+
+#tray * {
+  padding: 0 6px;
+  border-left: 1px solid @base00;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, 
+#custom-storage, #custom-updates, #custom-weather, #custom-mail, 
+#clock, #temperature, #language, #custom-powermenu{
+  margin: 4px 2px;
+  padding: 0 8px;
+  background-color: @base02;
+  border-radius: 7px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: #bd516c;
+}
+
+#pulseaudio.bluetooth {
+  color: #51bd79;
+}
+
+#clock {
+  margin-left: 0px;
+  margin-right: 4px;
 }
 
 #window {
-  font-family: "CaskaydiaCove NF";
-  font-size: 10px;
-  color: #414b50;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-size: 0.9em;
+	font-weight: 400;
+	font-family: CaskaydiaMono Nerd Font;
 }
+
+#language {
+	font-size: 0.9em;
+	font-weight: 500;
+	letter-spacing: -1px;
+}
+
