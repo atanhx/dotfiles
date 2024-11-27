@@ -6,14 +6,10 @@ return {
 	config = function()
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
-		buftype = ""
-		-- optionally enable 24-bit colour
 		vim.opt.termguicolors = true
 
-		-- empty setup using defaults
 		require("nvim-tree").setup()
 
-		-- OR setup with some options
 		require("nvim-tree").setup({
 			sort = {
 				sorter = "case_sensitive",
@@ -34,8 +30,8 @@ return {
 				icons = {
 					show = {
 						git = true,
-						file = false,
-						folder = false,
+						file = true,
+						folder = true,
 						folder_arrow = true,
 					},
 					glyphs = {

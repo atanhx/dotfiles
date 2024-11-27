@@ -26,9 +26,9 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "   New file", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("<space>ff", "󰮗   Find file", ":cd $HOME | Telescope find_files<CR>"),
-			dashboard.button("<alt>p", "   File Explorer", ":cd $HOME | Neotree<CR>"),
+			dashboard.button("<alt>p", "   File Explorer", ":cd $HOME | NvimTreeFindFileToggle<CR>"),
 			dashboard.button("<space>fo", "   Recent", ":Telescope oldfiles<CR>"),
-			dashboard.button("c", "   Configuration", ":e ~/.config/nvim/lua/user/config.lua<CR>"),
+			dashboard.button("c", "   Configuration", ":e nvim ~/dev/dotfiles/nvim/<CR>"),
 			dashboard.button("<space>fw", "󱘞   Ripgrep", ":Telescope live_grep<CR>"),
 			dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
 		}

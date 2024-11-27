@@ -2,7 +2,6 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
@@ -11,7 +10,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
+vim.opt.showmode = false
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -44,4 +43,3 @@ vim.opt.splitbelow = true
 vim.cmd.colorscheme("retrobox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
