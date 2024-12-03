@@ -58,6 +58,11 @@ return {
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>p", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 
+		{
+			"<leader>fn",
+			"<cmd>Telescope find_files search_dirs=$HOME/dev/dotfiles/nvim/<CR>",
+			desc = "Search NVIM Files",
+		},
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find filenames" },
 		{ "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Grep files" },

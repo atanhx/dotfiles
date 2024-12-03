@@ -1,10 +1,10 @@
 {
-  "layer": "top", 
-  "position": "bottom", 
-  "spacing": 4, 
+  "layer": "top",
+  "position": "bottom",
+  "spacing": 4,
   "modules-left": ["hyprland/workspaces", "pulseaudio", "backlight", "network", "custom/updates"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["battery", "tray", "clock", "custom/powermenu"],
+  "modules-right": ["battery", "tray", "clock", "date", "custom/powermenu"],
    "hyprland/workspaces": {
        "disable-scroll": true,
        "on-click": "activate",
@@ -25,9 +25,7 @@
       "spacing": 0
   },
   "clock": {
-      "timezone": "Asia/Kolkata",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%d-%m-%y  %H:%M}"
   },
   "battery": {
       "states": {
@@ -48,7 +46,7 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
   "network": {
-      "interface": "wlan0", 
+      "interface": "wlan0",
       "format-wifi": " ",
       // "format-wifi": "{essid}  ",
       "format-ethernet": "{ipaddr}/{cidr} ",
