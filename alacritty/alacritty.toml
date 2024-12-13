@@ -1,5 +1,5 @@
 [font]
-size = 13
+size = 10
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -22,7 +22,7 @@ hide_when_typing = false
 
 [window]
 dynamic_title = true
-opacity = 1 
+opacity = 1
 
 [window.padding]
 x = 26
