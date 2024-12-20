@@ -1,66 +1,73 @@
+* {
+	background-image: none;
+    outline-style: none;
+	/*box-shadow: none;*/
+}
+
 window {
-  font-family: CaskaydiaMono Nerd Font;
+  font-family: JetBrainsMono Nerd Font;
   font-size: 30px;
+  font-weight: 500;
   background: #1b1b1b;
-  color: #a9c4d3;
-  
+  opacity: 0.9;
+  /*color: #a9c4d3;*/
 }
-
+/**/
 button {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 20%;
-  border: 50px;
-  border-color: #3b3b3b;
-  border-radius: 12px;
-  color: #a9c4d3;
-  background-color: #3b3b3b;
+  border-radius: 20px;
+  background-color: #545454;
+  color: #348ceb;
+  opacity: 1;
   margin: 10px;
-  transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-
+  padding: 10px;
 }
-
+/**/
 button:hover {
   background-color: #503d39;
+  color: #eb4034;
+  border: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eb4034;
 }
-
+/**/
 button:focus {
-  background-color: #d49a9a;
-  color: #1d1d1d;
+  background-color: #545454;
+  /*color: #eb4034;*/
 }
 
 
-#lock {
-  background-image: image(url("./lock.png"));
-}
-#lock:focus {
-  background-image: image(url("./lock-hover.png"));
-}
-
-#logout {
-  background-image: image(url("./logout.png"));
-}
-#logout:focus {
-  background-image: image(url("./logout-hover.png"));
-}
-
-#suspend {
-  background-image: image(url("./sleep.png"));
-}
-#suspend:focus {
-  background-image: image(url("./sleep-hover.png"));
-}
-
-#shutdown {
-  background-image: image(url("./power.png"));
-}
-#shutdown:focus {
-  background-image: image(url("./power-hover.png"));
-}
-
-#reboot {
-  background-image: image(url("./restart.png"));
-}
-#reboot:focus {
-  background-image: image(url("./restart-hover.png"));
-}
+/*#lock {*/
+/*  background-image: image(url("./lock.png"));*/
+/*}*/
+/*#lock:focus {*/
+/*  background-image: image(url("./lock-hover.png"));*/
+/*}*/
+/**/
+/*#logout {*/
+/*  background-image: image(url("./logout.png"));*/
+/*}*/
+/*#logout:focus {*/
+/*  background-image: image(url("./logout-hover.png"));*/
+/*}*/
+/**/
+/*#suspend {*/
+/*  background-image: image(url("./sleep.png"));*/
+/*}*/
+/*#suspend:focus {*/
+/*  background-image: image(url("./sleep-hover.png"));*/
+/*}*/
+/**/
+/*#shutdown {*/
+/*  background-image: image(url("./power.png"));*/
+/*}*/
+/*#shutdown:focus {*/
+/*  background-image: image(url("./power-hover.png"));*/
+/*}*/
+/**/
+/*#reboot {*/
+/*  background-image: image(url("./restart.png"));*/
+/*}*/
+/*#reboot:focus {*/
+/*  background-image: image(url("./restart-hover.png"));*/
+/*}*/
