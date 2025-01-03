@@ -64,3 +64,7 @@ function link_dotfiles() {
 
 # Execute the script
 link_dotfiles
+
+# Install Zoxide
+#
+echo 'eval "$(zoxide init zsh)"' >> $HOME/.zshrc
