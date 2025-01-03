@@ -53,10 +53,8 @@ return {
             end,
             desc = "Open recent files",
         },
-        -- { "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-        { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "List open buffers" },
-        { "<leader>p", "<cmd>Telescope buffers<cr>", desc = "List open buffers (alternative)" },
-
+        { "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "List open buffers (alternative)" },
+        { "<leader>b",       "<cmd>Telescope buffers<cr>", desc = "List open buffers" },
         {
             "<leader>fn",
             "<cmd>Telescope find_files search_dirs=$HOME/dev/dotfiles/nvim/<CR>",
