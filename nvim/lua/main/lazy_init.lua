@@ -25,5 +25,5 @@ require("lazy").setup({
         enabled = true,
         notify = true
     },
-    change_detection = { notify = true }
+    change_detection = { notify = true },
 })
