@@ -23,7 +23,7 @@
       "separate-outputs": true
   },
   "tray": {
-      "spacing": 0
+      "spacing": 5
   },
   "clock": {
         "format": "{:%d-%m-%y...%H:%M}"

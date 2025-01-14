@@ -18,6 +18,9 @@ alias n='nvim'
 alias x='exit'
 alias dev='cd ~/dev'
 alias proj='cd ~/dev/projects'
+alias open='xdg-open'
+alias mlenv='source ~/dev/projects/venv_base/bin/activate'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
