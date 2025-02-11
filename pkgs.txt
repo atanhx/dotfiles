@@ -7,7 +7,6 @@ xdg-desktop-portal-gtk
 waybar
 wlogout
 wofi
-nmtui
 wl-clipboard
 wf-recorder
 dunst
@@ -42,7 +41,4 @@ ttf-twemoji-color
 ttf-font-awesome
 pamixer
 playerctl
-libva-nvidia-driver
-nvidia-settings
-nvidia-utils
 zoxide
