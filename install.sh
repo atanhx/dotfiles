@@ -60,6 +60,23 @@ function link_dotfiles() {
     else
         echo "Warning: could not find wofi directory"
     fi
+
+
+    # Link nvim files
+    if [[ -d "$dotfiles_dir/nvim" ]]; then
+        ln -s "$dotfiles_dir/nvim" "$config_dir/nvim" \
+            || { echo "Error: could not link nvim folder"; exit 1; }
+    else
+        echo "Warning: could not find nvim directory"
+    fi
+
+    # Link swalock files
+    if [[ -d "$dotfiles_dir/swaylock" ]]; then
+        ln -s "$dotfiles_dir/swaylock" "$config_dir/swaylock" \
+            || { echo "Error: could not link swaylock folder"; exit 1; }
+    else
+        echo "Warning: could not find swaylock directory"
+    fi
 }
 
 # Execute the script
