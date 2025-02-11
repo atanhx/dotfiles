@@ -26,7 +26,8 @@
       "spacing": 5
   },
   "clock": {
-        "format": "{:%d-%m-%y...%H:%M}"
+        "format": "{:%d-%m-%y...%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
   },
   "battery": {
       "states": {
