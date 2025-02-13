@@ -12,6 +12,15 @@ function R(name)
     require("plenary.reload").reload_module(name)
 end
 
+autocmd("VimEnter", {
+    group = augroup("autoupdate", {}),
+    callback = function()
+        if require("lazy.status").has_updates then
+            require("lazy").update({ show = false, })
+        end
+    end,
+})
+
 autocmd('TextYankPost', {
     group = yank_group,
     pattern = '*',

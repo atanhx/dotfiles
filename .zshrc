@@ -19,6 +19,7 @@ alias x='exit'
 alias dev='cd ~/dev'
 alias proj='cd ~/dev/projects'
 alias open='xdg-open'
+alias base_env='source $HOME/dev/base_env/bin/activate'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
