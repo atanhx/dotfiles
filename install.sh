@@ -21,6 +21,13 @@ function link_dotfiles() {
         echo "Warning: could not find alacritty directory"
     fi
 
+    # Link kitty files
+    if [[ -d "$dotfiles_dir/kitty" ]]; then
+        ln -s "$dotfiles_dir/kitty" "$config_dir/kitty" \
+            || { echo "Error: could not link kitty"; exit 1; }
+    else
+        echo "Warning: could not find kitty directory"
+    fi
     # Link dunst files
     if [[ -d "$dotfiles_dir/dunst" ]]; then
         ln -s "$dotfiles_dir/dunst" "$config_dir/dunst" \
