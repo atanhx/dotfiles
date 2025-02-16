@@ -14,6 +14,8 @@ ZSH_THEME="robbyrussell"
 
 alias cd='z'
 alias ls='ls -la'
+alias l='ls -la'
+alias ll='ls -la'
 alias n='nvim'
 alias x='exit'
 alias dev='cd ~/dev'

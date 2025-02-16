@@ -4,6 +4,7 @@ hyprpicker
 hyprlock
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
+network-mananger-applet
 waybar
 wlogout
 wofi
@@ -42,3 +43,4 @@ ttf-font-awesome
 pamixer
 playerctl
 zoxide
+uv

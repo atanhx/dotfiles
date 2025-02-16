@@ -83,5 +83,9 @@ function link_dotfiles() {
 link_dotfiles
 
 # Install Zoxide
-#
+ln -s "$dotfiles_dir/.zshrc" "$HOME/.zshrc"
 echo 'eval "$(zoxide init zsh)"' >> $HOME/.zshrc
+echo "ZSHRC File is also linked"
+echo
+
+
