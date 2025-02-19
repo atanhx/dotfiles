@@ -45,3 +45,4 @@ pamixer
 playerctl
 zoxide
 uv
+luarocks
