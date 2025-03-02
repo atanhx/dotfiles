@@ -10,7 +10,8 @@ fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:$HOME/.local/bin:/opt/cuda/bin"
+export PATH="$PATH:$HOME/.local/bin:/opt/cuda/bin:"
+export PATH="$PATH:$HOME/.local/bin/bin"
 export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -29,7 +30,7 @@ alias x='exit'
 alias dev='cd ~/dev'
 alias proj='cd ~/dev/projects'
 alias open='xdg-open'
-alias base_env='source $HOME/dev/base_env/bin/activate'
+alias base_env='source ~/dev/base_env/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 
 # Set list of themes to pick from when loading at random

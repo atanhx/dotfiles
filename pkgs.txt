@@ -20,6 +20,7 @@ slurp
 feh
 stow
 blueman
+bluetui
 tree
 htop
 lshw
@@ -46,3 +47,4 @@ playerctl
 zoxide
 uv
 luarocks
+rate-mirrors
