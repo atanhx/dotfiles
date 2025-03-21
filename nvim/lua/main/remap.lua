@@ -20,7 +20,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting c
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to system clipboard" })
 
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
+vim.keymap.set({ "n", "v" }, "<leader>dd", '"_d', { desc = "Delete without copying" })
 
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("i", "<C-s>", "<Esc>", { desc = "Exit insert mode (alternative)" })
@@ -41,3 +41,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc =
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end, { desc = "Reloads NVIM with :so" })
+
+vim.keymap.set("n", "gr", ":Telescope lsp_references<cr>")
+vim.keymap.set("n", "gt", ":Telescope lsp_type_definitions<cr>")
