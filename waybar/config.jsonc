@@ -5,7 +5,7 @@
   "spacing": 4,
   "modules-left": ["hyprland/workspaces", ],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "pulseaudio", "backlight", "network", "custom/updates", "battery", "tray", "custom/powermenu"],
+  "modules-right": ["clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
    "hyprland/workspaces": {
        "disable-scroll": true,
        "on-click": "activate",
