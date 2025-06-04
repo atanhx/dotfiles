@@ -48,5 +48,4 @@ zoxide
 uv
 luarocks
 rate-mirrors
-dolphin
 fastfetch

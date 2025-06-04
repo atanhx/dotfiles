@@ -34,7 +34,7 @@ alias open='xdg-open'
 alias base_env='source ~/dev/base_env/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias btop='btop --force-utf'
-
+alias exiftool='/usr/bin/vendor_perl/exiftool'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -257,3 +257,5 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH=$PATH:/home/um/.spicetify

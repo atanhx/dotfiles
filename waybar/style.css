@@ -26,20 +26,22 @@
 
 #battery, #network, #pulseaudio, #backlight,
 #clock, #custom-powermenu, #tray{
-  margin: 1px 0px;
-  padding: 0 5px;
+  margin: 2px 0px;
+  padding: 0px 5px 0px 5px;
   background-color: @base02;
-  min-width: 10px;
+  min-width: 15px;
+  border-radius: 5px
 }
 
 #custom-powermenu {
+  /* font-size: 15px; */
   padding-right: 8px;
 }
 
 #waybar {
-    font-size: 11px;
+    font-size: 12px;
     font-family: JetBrains Mono Nerd Font;
-    font-weight: 700;
+    font-weight: 600;
     color: @base04;
     background: @base00;
 }
@@ -71,7 +73,15 @@
 }
 
 #window {
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 400;
+  font-family: JetBrains Mono Nerd Font;
+
+}
+#window {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: JetBrains Mono Nerd Font;
+
 }
 
