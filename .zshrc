@@ -18,8 +18,7 @@ export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 alias cd='z'
 alias ls='ls -la'
