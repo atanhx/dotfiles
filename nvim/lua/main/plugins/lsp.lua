@@ -26,9 +26,11 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_enable = true,
-            -- ensure_installed = {
-            --     "lua_ls", "ruff", "pylsp", "clangd", "pyrefly"
-            -- },
+            ensure_installed = {
+                "lua_ls", "ruff", "pylsp", "clangd", "pyrefly",
+                "ty", "ast_grep", "bashls",
+                "denols", "eslint",
+            },
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
