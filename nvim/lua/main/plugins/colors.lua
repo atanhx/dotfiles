@@ -13,15 +13,6 @@ return {
         end,
     },
     -- {
-    --     'kepano/flexoki-neovim',
-    --     name = 'flexoki',
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         vim.cmd [[colorscheme flexoki-dark]]
-    --     end
-    -- },
-    -- {
     --     "rebelot/kanagawa.nvim",
     --     config = function()
     --         require('kanagawa').setup({
