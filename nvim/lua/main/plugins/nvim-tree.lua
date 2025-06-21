@@ -8,6 +8,8 @@ return {
         vim.g.loaded_netrwPlugin = 1
         vim.opt.termguicolors = true
 
+        require("nvim-tree").setup()
+
         require("nvim-tree").setup({
             sort = {
                 sorter = "case_sensitive",
