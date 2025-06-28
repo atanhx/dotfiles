@@ -11,6 +11,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.showmode = false
 vim.opt.smartindent = true
+vim.opt.laststatus = 3
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
@@ -38,7 +39,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80,190"
+vim.opt.colorcolumn = "999"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true

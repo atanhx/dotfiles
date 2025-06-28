@@ -48,6 +48,10 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<CR>", { desc = "Resize split dow
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Resize split left" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Resize split right" })
 
+vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR>", { desc = "Create new tab" })
+vim.keymap.set("n", "J", "<cmd>tabprevious<CR>", { desc = "Change to previous tab" })
+vim.keymap.set("n", "K", "<cmd>tabnext<CR>", { desc = "Change to next tab" })
+
 vim.keymap.set({ "i" }, "<C-l>", "<Right>", { desc = "Move cursor to right" })
 vim.keymap.set({ "i" }, "<C-h>", "<Left>", { desc = "Move cursor to right" })
 

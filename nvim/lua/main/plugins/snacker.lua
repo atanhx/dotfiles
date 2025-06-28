@@ -4,14 +4,20 @@ return {
 	lazy = false,
 	opts = {
 		dashboard = { enabled = true },
-		indent = { enabled = true },
-		input = { enabled = true },
-		picker = { enabled = true, preset = "sidebar", layout = { postion = "right" } },
+		input = {
+			enabled = true,
+			backdrop = true,
+			position = "float",
+			border = "rounded",
+			title_pos = "center",
+			height = 1,
+			width = 60,
+			relative = "editor",
+		},
+		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
-		words = { enabled = true },
 	},
 	keys = {
 		-- Top Pickers & Explorer

@@ -27,13 +27,9 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
-			ensure_installed = {
-				"lua_ls",
-				"ruff",
-				"pylsp",
-				"clangd",
-				"pyrefly",
-			},
+			-- ensure_installed = {
+			--     "lua_ls", "ruff", "pylsp", "clangd", "pyrefly"
+			-- },
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
@@ -72,8 +68,7 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
-			}, {
+				{ name = "luasnip" },
 				{ name = "buffer" },
 			}),
 		})
