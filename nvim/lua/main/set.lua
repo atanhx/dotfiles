@@ -2,9 +2,8 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
-end)
+
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -12,6 +11,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.showmode = false
 vim.opt.smartindent = true
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 
 vim.opt.wrap = true
 
@@ -35,7 +38,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
--- vim.opt.colorcolumn = "190"
+vim.opt.colorcolumn = "80,190"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true

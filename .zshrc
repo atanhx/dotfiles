@@ -25,6 +25,7 @@ alias ls='ls -la'
 alias l='ls -la'
 alias ll='ls -la'
 alias n='nvim'
+alias v='nvim'
 alias x='exit'
 alias cat='bat -P'
 alias dev='cd ~/dev'
@@ -34,6 +35,7 @@ alias base_env='source ~/dev/base_env/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
+alias zed='zeditor'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
