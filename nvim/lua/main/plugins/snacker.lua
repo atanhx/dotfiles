@@ -14,13 +14,12 @@ return {
 			width = 60,
 			relative = "editor",
 		},
-		picker = { enabled = true },
+		picker = { enabled = true, toggles = { hidden = true } },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		statuscolumn = { enabled = true },
 	},
 	keys = {
-		-- Top Pickers & Explorer
 		{
 			"<leader><space>",
 			function()
