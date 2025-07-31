@@ -5,7 +5,7 @@
   "spacing": 5,
   "modules-left": ["hyprland/workspaces", ],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
+  "modules-right": ["custom/powerprofile", "clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
    "hyprland/workspaces": {
        "disable-scroll": true,
        "on-click": "activate",
@@ -67,5 +67,12 @@
       },
       "on-click": "pavucontrol",
       "max-volume": 150
-  }
+  },
+    "custom/powerprofile": {
+        "format": " {}",
+        "interval": 1,
+        "exec": "powerprofilesctl get",
+        "on-click": "~/dev/dotfiles/hypr/scripts/powerprofiles",
+        "tooltip": false
+    }
 }
