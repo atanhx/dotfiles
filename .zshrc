@@ -3,6 +3,9 @@ export PATH="$PATH:$HOME/.local/bin:/opt/cuda/bin:"
 export PATH="$PATH:$HOME/.local/bin/bin"
 export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
 
+setopt HIST_IGNORE_SPACE
+alias jrnl=" jrnl"
+
 ZSH_THEME="robbyrussell"
 
 alias cd='z'
@@ -13,16 +16,31 @@ alias n='nvim'
 alias v='nvim'
 alias vim='nvim'
 alias x='exit'
-alias cat='bat -P'
-alias dev='cd ~/dev'
-alias proj='cd ~/dev/projects'
+alias cat='bat -P --plain'
 alias open='xdg-open'
 alias calc='qalc'
-alias base_env='source ~/dev/base_env/bin/activate'
+alias base_env='source ~/dev/base/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
 alias zed='zeditor'
+
+# git aliases
+alias gita='git add'
+alias gitaa='git add --all'
+alias gitb='git branch'
+alias gitba='git branch -a'
+alias gitc='git commit -m'
+alias gitca='git commit --amend'
+alias gitco='git checkout'
+alias gitcb='git checkout -b'
+alias gitd='git diff'
+alias gitds='git diff --staged'
+alias gitl='git log --oneline --graph --decorate'
+alias gitp='git push'
+alias gitpl='git pull'
+alias gits='git status'
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -800,3 +818,8 @@ fi
   'unset' '__fzf_completion_options'
 }
 ### end: completion.zsh ###
+. "/home/um/.deno/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

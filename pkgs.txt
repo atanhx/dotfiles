@@ -4,7 +4,6 @@ hyprpicker
 hyprlock
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
-network-mananger-applet
 waybar
 wlogout
 wofi
@@ -33,7 +32,6 @@ syncthing
 papirus-icon-theme
 brightnessctl
 swaylock-effects-git
-grimshot
 cliphist
 p7zip
 polkit-kde-agent

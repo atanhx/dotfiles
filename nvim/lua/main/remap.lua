@@ -1,10 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open quickfix list with diagnostics" })
-vim.keymap.set("n", "<leader>Q", "<cmd>wq!<CR>", { desc = "Force save and  quit" })
+vim.keymap.set("n", "<leader>Q", "<cmd>wqa!<CR>", { desc = "Force save and  quit" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down (visual mode)" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up (visual mode)" })
@@ -29,6 +28,8 @@ vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode (alternative)" })
 vim.keymap.set("n", "Q", "<nop>", { desc = "Do nothing (disable Q)" })
 vim.keymap.set("n", "<leader>pf", vim.lsp.buf.format, { desc = "Format current buffer with LSP" })
 
+vim.keymap.set("n", "<M-f>", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle Nvim Tree" })
+
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Go to next quickfix item" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Go to previous quickfix item" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Go to next location list item" })
@@ -37,7 +38,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Go to previous lo
 vim.keymap.set("v", "<", "<gv", { desc = "(V) Indent to left" })
 vim.keymap.set("v", ">", ">gv", { desc = "(V) Indent to right" })
 
-vim.keymap.set("n", "hs", ":split<Return>")
+-- vim.keymap.set("n", "hs", ":split<Return>")
 vim.keymap.set("n", "vs", ":vsplit<Return>")
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below split" })
@@ -56,9 +57,9 @@ vim.keymap.set({ "i" }, "<C-l>", "<Right>", { desc = "Move cursor to right" })
 vim.keymap.set({ "i" }, "<C-h>", "<Left>", { desc = "Move cursor to right" })
 
 vim.keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Replace word under cursor" }
+    "n",
+    "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace word under cursor" }
 )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
