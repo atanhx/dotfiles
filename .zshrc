@@ -23,7 +23,7 @@ alias base_env='source ~/dev/base/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
-alias zed='zeditor'
+# alias zed='zeditor'
 
 # git aliases
 alias gita='git add'

@@ -1,98 +1,76 @@
 #!/bin/bash
 
-# Links dotfiles from $HOME/dotfiles to $HOME/.config
-function link_dotfiles() {
-    local dotfiles_dir="$HOME/dev/dotfiles"
-    local config_dir="$HOME/.config"
+set -e
 
-    # Link hypr files
-    if [[ -d "$dotfiles_dir/hypr" ]]; then
-        ln -s "$dotfiles_dir/hypr" "$config_dir/hypr" \
-            || { echo "Error: could not link hypr"; exit 1; }
-    else
-        echo "Warning: could not find hypr directory"
+DOTFILES_DIR="${HOME}/dev/dotfiles"
+CONFIG_DIR="${HOME}/.config"
+
+CONFIG_TARGETS=(
+    "hypr"
+    "alacritty"
+    "kitty"
+    "dunst"
+    "fontconfig"
+    "waybar"
+    "wlogout"
+    "wofi"
+    "nvim"
+    "zed"
+    "swaylock"
+)
+
+HOME_TARGETS=(
+    ".zshrc"
+)
+
+main() {
+    echo "[START]: Starting dotfiles setup..."
+    mkdir -p "${CONFIG_DIR}"
+
+    for target in "${CONFIG_TARGETS[@]}"; do
+        link_item "${DOTFILES_DIR}/${target}" "${CONFIG_DIR}/${target}"
+    done
+
+    for target in "${HOME_TARGETS[@]}"; do
+        link_item "${DOTFILES_DIR}/${target}" "${HOME}/${target}"
+    done
+    
+    setup_zoxide
+
+    echo "[DONE]: Dotfiles setup complete!"
+}
+
+link_item() {
+    local src="$1"
+    local dest="$2"
+
+    if [ ! -e "${src}" ]; then
+        echo "[WARNING]: Source '${src}' not found. Skipping."
+        return
+    fi
+    
+    if [ -L "${dest}" ]; then
+        echo "Removing existing symlink at '${dest}'."
+        rm "${dest}"
+    elif [ -e "${dest}" ]; then
+        echo "Backing up existing file/directory at '${dest}' to '${dest}.bak'."
+        mv "${dest}" "${dest}.bak"
     fi
 
-    # Link alacritty files
-    if [[ -d "$dotfiles_dir/alacritty" ]]; then
-        ln -s "$dotfiles_dir/alacritty" "$config_dir/alacritty" \
-            || { echo "Error: could not link alacritty"; exit 1; }
-    else
-        echo "Warning: could not find alacritty directory"
-    fi
+    echo "Linking '${src}' to '${dest}'."
+    ln -s "${src}" "${dest}"
+}
 
-    # Link kitty files
-    if [[ -d "$dotfiles_dir/kitty" ]]; then
-        ln -s "$dotfiles_dir/kitty" "$config_dir/kitty" \
-            || { echo "Error: could not link kitty"; exit 1; }
-    else
-        echo "Warning: could not find kitty directory"
-    fi
-    # Link dunst files
-    if [[ -d "$dotfiles_dir/dunst" ]]; then
-        ln -s "$dotfiles_dir/dunst" "$config_dir/dunst" \
-            || { echo "Error: could not link dunst"; exit 1; }
-    else
-        echo "Warning: could not find dunst directory"
-    fi
+setup_zoxide() {
+    local zshrc_file="${HOME}/.zshrc"
+    local zoxide_init_str='eval "$(zoxide init zsh)"'
 
-    # Link fontconfig files
-    if [[ -d "$dotfiles_dir/fontconfig" ]]; then
-        ln -s "$dotfiles_dir/fontconfig" "$config_dir/fontconfig" \
-            || { echo "Error: could not link fontconfig"; exit 1; }
+    if ! grep -qF -- "${zoxide_init_str}" "${zshrc_file}"; then
+        echo "Configuring zoxide in ${zshrc_file}..."
+        echo -e "\nInitialize Zoxide\n${zoxide_init_str}" >> "${zshrc_file}"
     else
-        echo "Warning: could not find fontconfig directory"
-    fi
-
-    # Link waybar files
-    if [[ -d "$dotfiles_dir/waybar" ]]; then
-        ln -s "$dotfiles_dir/waybar" "$config_dir/waybar" \
-            || { echo "Error: could not link waybar"; exit 1; }
-    else
-        echo "Warning: could not find waybar directory"
-    fi
-
-    # Link wlogout files
-    if [[ -d "$dotfiles_dir/wlogout" ]]; then
-        ln -s "$dotfiles_dir/wlogout" "$config_dir/wlogout" \
-            || { echo "Error: could not link wlogout"; exit 1; }
-    else
-        echo "Warning: could not find wlogout directory"
-    fi
-
-    # Link wofi files
-    if [[ -d "$dotfiles_dir/wofi" ]]; then
-        ln -s "$dotfiles_dir/wofi" "$config_dir/wofi" \
-            || { echo "Error: could not link wofi"; exit 1; }
-    else
-        echo "Warning: could not find wofi directory"
-    fi
-
-
-    # Link nvim files
-    if [[ -d "$dotfiles_dir/nvim" ]]; then
-        ln -s "$dotfiles_dir/nvim" "$config_dir/nvim" \
-            || { echo "Error: could not link nvim folder"; exit 1; }
-    else
-        echo "Warning: could not find nvim directory"
-    fi
-
-    # Link swalock files
-    if [[ -d "$dotfiles_dir/swaylock" ]]; then
-        ln -s "$dotfiles_dir/swaylock" "$config_dir/swaylock" \
-            || { echo "Error: could not link swaylock folder"; exit 1; }
-    else
-        echo "Warning: could not find swaylock directory"
+        echo "[DONE]: Zoxide already configured in ${zshrc_file}."
     fi
 }
 
-# Execute the script
-link_dotfiles
-
-# Install Zoxide
-ln -s "$dotfiles_dir/.zshrc" "$HOME/.zshrc"
-echo 'eval "$(zoxide init zsh)"' >> $HOME/.zshrc
-echo "ZSHRC File is also linked"
-echo
-
-
+main

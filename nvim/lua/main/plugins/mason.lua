@@ -4,7 +4,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "rust_analyzer", "clangd", "lua_ls", "zls", "ruff", "pylsp" },
+            ensure_installed = { "rust_analyzer", "clangd", "lua_ls", "ruff", "pylsp" },
 
             automatic_installation = true,
             handlers = {
@@ -31,6 +31,30 @@ return {
                                         vim.env.VIMRUNTIME,
                                     },
                                 },
+                            },
+                        },
+                    })
+                end,
+                pylsp = function()
+                    local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+                    require("lspconfig").pylsp.setup({
+                        capabilities = lsp_capabilities,
+                        settings = {
+                            pylsp = {
+                                plugins = {
+                                    pycodestyle = { enabled = false },
+                                },
+                            },
+                        },
+                    })
+                end,
+                ruff = function()
+                    local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+                    require("lspconfig").ruff.setup({
+                        capabilities = lsp_capabilities,
+                        init_options = {
+                            settings = {
+                                args = {},
                             },
                         },
                     })

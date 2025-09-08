@@ -7,32 +7,111 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.7-sonnet"
-    },
-    "default_profile": "ask",
-    "model_parameters": [],
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.7-sonnet"
-    }
+  "disable_ai": true,
+  "minimap": {
+    "show": "always"
   },
-  "icon_theme": "Material Icon Theme",
-  "theme": "Ayu Dark",
-  "features": {
-    "edit_prediction_provider": "none",
-    "notebooks": true
-  },
+  "hide_mouse": "never",
+  "use_autoclose": false,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "vim_mode": true,
+  "relative_line_numbers": true,
   "telemetry": {
-    "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
+    "metrics": false
   },
   "autosave": "on_focus_change",
+  "formatter": "language_server",
+  "soft_wrap": "preferred_line_length",
   "ui_font_size": 18,
   "buffer_font_size": 16,
-  "ui_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_family": "JetBrainsMono Nerd Font"
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Ayu Dark"
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_value_hints": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": {
+      "control": false,
+      "alt": false,
+      "shift": false,
+      "platform": false,
+      "function": false
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": {
+            "extendSelect": [
+              "I"
+            ]
+          }
+        }
+      }
+    },
+    "basedpyright": {
+      "binary": {
+        "path": "uvx",
+        "arguments": [
+          "--from=basedpyright",
+          "basedpyright-langserver",
+          "--stdio"
+        ]
+      },
+      "settings": {
+        "basedpyright": {
+          "disableOrganizeImports": true,
+          "analysis": {
+            "diagnosticMode": "workspace",
+            "inlayHints": {
+              "variableTypes": true,
+              "functionReturnTypes": true,
+              "genericTypes": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "enable_language_server": true,
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "basedpyright",
+        "ruff"
+      ],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true
+            // "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "C++": {
+      "format_on_save": "on",
+      "use_on_type_format": true,
+      "prettier": {
+        "allowed": true
+      }
+    }
+  }
 }
