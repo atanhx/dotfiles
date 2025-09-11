@@ -1,7 +1,7 @@
 require("main.remap")
 require("main.set")
 require("main.lazy")
-
+vim.lsp.set_log_level("debug")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -15,6 +15,16 @@ autocmd("TextYankPost", {
 		})
 	end,
 })
+
+-- autocmd("CursorHold", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.diagnostic.open_float(nil, {
+-- 			focusable = false,
+-- 			scope = "cursor",
+-- 		})
+-- 	end,
+-- })
 
 local cursorGrp = augroup("CursorLine", { clear = true })
 autocmd({ "InsertLeave", "WinEnter" }, {

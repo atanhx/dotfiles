@@ -454,7 +454,7 @@ return {
 			function()
 				Snacks.terminal()
 			end,
-			desc = "Toggle Terminal",
+			desc = "Terminal",
 		},
 		{
 			"<c-_>",

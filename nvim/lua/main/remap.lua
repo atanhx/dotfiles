@@ -5,6 +5,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open quickfix list with diagnostics" })
 vim.keymap.set("n", "<leader>Q", "<cmd>wqa!<CR>", { desc = "Force save and  quit" })
 
+vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down (visual mode)" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up (visual mode)" })
 
@@ -26,7 +28,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode (alternative)" })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = "Do nothing (disable Q)" })
-vim.keymap.set("n", "<leader>pf", vim.lsp.buf.format, { desc = "Format current buffer with LSP" })
 
 vim.keymap.set("n", "<M-f>", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle Nvim Tree" })
 
@@ -49,17 +50,17 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<CR>", { desc = "Resize split dow
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Resize split left" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Resize split right" })
 
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover(), { desc = "Hover Help" })
+-- vim.keymap.set({ "i", "n" }, "<C-h>", vim.lsp.buf.signature_help(), { desc = "Signature Help" })
+
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR>", { desc = "Create new tab" })
-vim.keymap.set("n", "J", "<cmd>tabprevious<CR>", { desc = "Change to previous tab" })
-vim.keymap.set("n", "K", "<cmd>tabnext<CR>", { desc = "Change to next tab" })
-
-vim.keymap.set({ "i" }, "<C-l>", "<Right>", { desc = "Move cursor to right" })
-vim.keymap.set({ "i" }, "<C-h>", "<Left>", { desc = "Move cursor to right" })
-
+vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Change to previous tab" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "Change to next tab" })
+vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Change to previous tab" })
 vim.keymap.set(
-    "n",
-    "<leader>s",
-    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Replace word under cursor" }
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word under cursor" }
 )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })

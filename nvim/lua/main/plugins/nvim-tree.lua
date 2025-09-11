@@ -13,18 +13,10 @@ return {
                 sorter = "case_sensitive",
             },
             view = {
-                width = 20,
+                width = 30,
             },
             renderer = {
                 group_empty = true,
-            },
-            filters = {
-                dotfiles = true,
-            },
-        })
-
-        require("nvim-tree").setup({
-            renderer = {
                 icons = {
                     show = {
                         git = true,
@@ -48,6 +40,10 @@ return {
                         },
                     },
                 },
+
+            },
+            filters = {
+                dotfiles = true,
             },
         })
     end,
