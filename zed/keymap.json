@@ -14,26 +14,26 @@
       "*": "editor::SelectNext",
       "#": "editor::SelectPrevious",
       // Git
-      "space g h d": "editor::ToggleSelectedDiffHunks",
-      "space g s": "git_panel::ToggleFocus",
+      "alt-g h d": "editor::ToggleSelectedDiffHunks",
+      "alt-g s": "git_panel::ToggleFocus",
       // Toggles
-      "space t i": "editor::ToggleInlayHints",
-      "space u w": "editor::ToggleSoftWrap", // "u" for UI
-      "space c z": "workspace::ToggleCenteredLayout",
+      "alt-t i": "editor::ToggleInlayHints",
+      "alt-u w": "editor::ToggleSoftWrap", // "u" for UI
+      "alt-c z": "workspace::ToggleCenteredLayout",
       // Markdown
-      "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide",
+      "alt-m p": "markdown::OpenPreview",
+      "alt-m P": "markdown::OpenPreviewToTheSide",
       // File & Project
-      "space f p": "projects::OpenRecent",
-      "space f f": "file_finder::Toggle",
-      "space space": "file_finder::Toggle", // Alias for file finder
-      "space f t": "workspace::OpenInTerminal",
-      "space p": "project_panel::ToggleFocus",
+      "alt-f p": "projects::OpenRecent",
+      "alt-f f": "file_finder::Toggle",
+      "alt-space": "file_finder::Toggle", // Alias for file finder
+      "alt-f t": "workspace::OpenInTerminal",
+      "alt-p": "project_panel::ToggleFocus",
       // Editor Actions
       "g f": "editor::OpenExcerpts",
       "K": "editor::MoveLineUp", // Move selected lines up
       "J": "editor::MoveLineDown", // Move selected lines down
-      "space d l": "editor::DuplicateLineDown"
+      "alt-d l": "editor::DuplicateLineDown"
     }
   },
   // Bindings for Normal mode only
@@ -46,11 +46,11 @@
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
       // --- Fast Pane/Window Management ---
-      "space w v": "pane::SplitRight",
-      "space w s": "pane::SplitDown",
-      "space w =": "vim::ResetPaneSizes",
+      "alt-w v": "pane::SplitRight",
+      "alt-w s": "pane::SplitDown",
+      "alt-w =": "vim::ResetPaneSizes",
       // LSP & Diagnostics
-      "space c a": "editor::ToggleCodeActions",
+      "alt-c a": "editor::ToggleCodeActions",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
       "g i": "editor::GoToImplementation",
@@ -60,18 +60,18 @@
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
-      "space x x": "diagnostics::Deploy", // Show diagnostics panel
+      "alt-x x": "diagnostics::Deploy", // Show diagnostics panel
       // Tab / Item Navigation
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       // Close Item / Buffer
-      "space q": "pane::CloseActiveItem",
-      "space b d": "pane::CloseActiveItem", // "b" for buffer, "d" for delete
-      "space b o": "pane::CloseOtherItems",
-      // Workspace & Search
+      "alt-q": "pane::CloseActiveItem",
+      "alt-b d": "pane::CloseActiveItem", // "b" for buffer, "d" for delete
+      "alt-b o": "pane::CloseOtherItems",
+      // Workalt-& Search
       "ctrl-s": "workspace::Save",
-      "space s": "pane::DeploySearch", // Search in current file
-      "space e": "pane::RevealInProjectPanel"
+      "alt-s": "pane::DeploySearch", // Search in current file
+      "alt-e": "pane::RevealInProjectPanel"
     }
   },
   // Bindings for Visual mode
@@ -97,14 +97,14 @@
       "r": "editor::Rename" // Create a 'cr' operator for rename
     }
   },
-  // Global workspace bindings
+  // Global workalt-bindings
   {
     "context": "Workspace",
     "bindings": {
-      "space t e": "terminal_panel::ToggleFocus",
-      "space c b": "workspace::ToggleBottomDock",
-      "space c r": "workspace::ToggleRightDock",
-      "space c l": "workspace::ToggleLeftDock"
+      "alt-t e": "terminal_panel::ToggleFocus",
+      "alt-c b": "workspace::ToggleBottomDock",
+      "alt-c r": "workspace::ToggleRightDock",
+      "alt-c l": "workspace::ToggleLeftDock"
     }
   },
   // Terminal-specific bindings
@@ -114,7 +114,9 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-l": "terminal::Clear"
+      "ctrl-l": "terminal::Clear",
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
+      "ctrl-shift-l": "pane::ActivateNextItem"
     }
   },
   // File panel (netrw style) bindings
@@ -129,7 +131,7 @@
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
       "q": "workspace::ToggleLeftDock", // 'q' to quit/close the panel
-      "space e": "workspace::ToggleLeftDock", // Consistent with 'space e' in editor
+      "alt-e": "workspace::ToggleLeftDock", // Consistent with 'alt-e' in editor
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",

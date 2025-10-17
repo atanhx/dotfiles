@@ -52,6 +52,9 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Resize
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover(), { desc = "Hover Help" })
 -- vim.keymap.set({ "i", "n" }, "<C-h>", vim.lsp.buf.signature_help(), { desc = "Signature Help" })
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+	require("tiny-code-action").code_action()
+end, { desc = "Code action", noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR>", { desc = "Create new tab" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Change to previous tab" })
@@ -63,4 +66,4 @@ vim.keymap.set(
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Replace word under cursor" }
 )
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })

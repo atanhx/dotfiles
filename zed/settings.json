@@ -55,48 +55,51 @@
           "lint": {
             "extendSelect": [
               "I"
+            ],
+            "ignore": [
+              "I001"
             ]
           }
         }
       }
     },
-    "basedpyright": {
-      "binary": {
-        "path": "uvx",
-        "arguments": [
-          "--from=basedpyright",
-          "basedpyright-langserver",
-          "--stdio"
-        ]
-      },
-      "settings": {
-        "basedpyright": {
-          "disableOrganizeImports": true,
-          "analysis": {
-            "diagnosticMode": "workspace",
-            "inlayHints": {
-              "variableTypes": true,
-              "functionReturnTypes": true,
-              "genericTypes": true
-            }
-          }
-        }
-      }
-    }
+    // "basedpyright": {
+    //   "binary": {
+    //     "path": "uvx",
+    //     "arguments": [
+    //       "--from=basedpyright",
+    //       "basedpyright-langserver",
+    //       "--stdio"
+    //     ]
+    //   },
+    //   "settings": {
+    //     "basedpyright": {
+    //       "disableOrganizeImports": true,
+    //       "analysis": {
+    //         "diagnosticMode": "workspace",
+    //         "inlayHints": {
+    //           "variableTypes": true,
+    //           "functionReturnTypes": true,
+    //           "genericTypes": true
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   },
   "enable_language_server": true,
   "languages": {
     "Python": {
       "language_servers": [
-        "basedpyright",
-        "ruff"
+        "ruff",
+        "pylsp"
       ],
       "format_on_save": "on",
       "formatter": [
         {
           "code_actions": {
-            "source.organizeImports.ruff": true
-            // "source.fixAll.ruff": true
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
           }
         },
         {

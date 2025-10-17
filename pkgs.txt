@@ -47,3 +47,4 @@ uv
 luarocks
 rate-mirrors
 fastfetch
+archlinux-xdg-menu
