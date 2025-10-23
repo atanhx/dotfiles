@@ -33,6 +33,15 @@
   border-radius: 5px
 }
 
+#custom-recording {
+  margin: 2px 0px;
+  padding: 0px 5px 0px 5px;
+  color: @base07;
+  background-color: @base08;
+  min-width: 15px;
+  border-radius: 5px
+}
+
 #custom-powermenu {
   /* font-size: 15px; */
   padding-right: 8px;

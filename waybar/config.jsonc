@@ -5,7 +5,7 @@
   "spacing": 5,
   "modules-left": ["hyprland/workspaces", ],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/powerprofile", "clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
+  "modules-right": ["custom/recording", "custom/powerprofile", "clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
    "hyprland/workspaces": {
        "disable-scroll": true,
        "on-click": "activate",
@@ -18,6 +18,15 @@
       "format": "⏻",
       "on-click": "wlogout -b 1 -L 500 -R 500 -T 250 -B 500"
    },
+
+"custom/recording": {
+    "format": " {}",
+    "exec-if": "test -f /tmp/wf-recorder.pid",
+    "exec": "~/dev/dotfiles/hypr/scripts/waybar_timer.sh",
+    "interval": 1,
+    "on-click": "pkill -INT -x wf-recorder",
+    "tooltip": false
+  },
   "hyprland/window": {
       "max-length": 50,
       "separate-outputs": true

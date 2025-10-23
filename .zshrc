@@ -4,7 +4,6 @@ export PATH="$PATH:$HOME/.local/bin/bin"
 export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
 
 setopt HIST_IGNORE_SPACE
-alias jrnl=" jrnl"
 
 ZSH_THEME="robbyrussell"
 
@@ -24,8 +23,8 @@ alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
 alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mp4 --embed-thumbnail --write-subs --embed-subs "$@"'
-# alias zed='zeditor'
-
+alias tmux='tmux -u'
+alias jrnl=" jrnl"
 # git aliases
 alias gita='git add'
 alias gitaa='git add --all'
@@ -819,7 +818,7 @@ fi
   'unset' '__fzf_completion_options'
 }
 ### end: completion.zsh ###
-. "/home/um/.deno/env"
+# . "/home/um/.deno/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

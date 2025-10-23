@@ -31,7 +31,6 @@ qbittorrent
 syncthing
 papirus-icon-theme
 brightnessctl
-swaylock-effects-git
 cliphist
 p7zip
 polkit-kde-agent
@@ -48,3 +47,7 @@ luarocks
 rate-mirrors
 fastfetch
 archlinux-xdg-menu
+sway-contrib
+nm-connection-editor
+network-manager-applet
+yazi
