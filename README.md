@@ -14,7 +14,6 @@ Details about the setup:
 - **Editor**: [VS Code](https://code.visualstudio.com/) (Everforest Theme from marketplace)
 - **Launcher**: [Wofi](https://hg.sr.ht/~scoopta/wofi)
 - **Notification**: [Dunst](https://github.com/dunst-project/dunst)
-- **Logout Screen**: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
 - **Fonts & Other Packages**: See `pkgs.txt` file
 
 More screenshots are under `/assets/` directory.

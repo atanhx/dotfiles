@@ -5,7 +5,6 @@ hyprlock
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 waybar
-wlogout
 wofi
 wl-clipboard
 wf-recorder
@@ -37,6 +36,7 @@ polkit-kde-agent
 inotify-tools
 ttf-cascadia-code-nerd
 ttf-jetbrains-mono-nerd
+ttf-bigblueterminal-nerd
 ttf-twemoji-color
 ttf-font-awesome
 pamixer

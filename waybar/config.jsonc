@@ -3,23 +3,45 @@
   // "height": 10,
   "position": "top",
   "spacing": 5,
-  "modules-left": ["hyprland/workspaces", ],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/recording", "custom/powerprofile", "clock", "pulseaudio", "backlight", "custom/updates", "battery", "tray", "custom/powermenu"],
-   "hyprland/workspaces": {
-       "disable-scroll": true,
-       "on-click": "activate",
-       "all-outputs": true,
-       "format": "{name}",
-       "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
-       "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null"
-   },
-   "custom/powermenu": {
-      "format": "⏻",
-      "on-click": "wlogout -b 1 -L 500 -R 500 -T 250 -B 500"
-   },
-
-"custom/recording": {
+  "modules-right": [
+    "custom/recording",
+    "power-profiles-daemon",
+    "custom/powerprofile",
+    "clock",
+    "pulseaudio",
+    "backlight",
+    "custom/updates",
+    "battery",
+    "tray",
+    "custom/powermenu"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X"
+    },
+    "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+    "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null"
+  },
+  "custom/powermenu": {
+    "format": "⏻",
+    "on-click": "$HOME/dev/dotfiles/hypr/scripts/powermenu.sh"
+  },
+  "custom/recording": {
     "format": " {}",
     "exec-if": "test -f /tmp/wf-recorder.pid",
     "exec": "~/dev/dotfiles/hypr/scripts/waybar_timer.sh",
@@ -28,60 +50,66 @@
     "tooltip": false
   },
   "hyprland/window": {
-      "max-length": 50,
-      "separate-outputs": true
+    "max-length": 50,
+    "separate-outputs": true
   },
   "tray": {
-      "icon-size": 13,
-      "spacing": 5
+    "icon-size": 13,
+    "spacing": 5
   },
   "clock": {
-        "format": "{:%d-%m-%y | %I:%M:%S %p}",
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "interval": 1
+    "format": "{:%d-%m-%y | %I:%M:%S %p}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "interval": 1
   },
   "battery": {
-      "states": {
-          "warning": 30,
-          "critical": 15
-      },
-      "format": "{capacity}% {icon}",
-      "format-charging": "{capacity}% 🗲",
-      "format-plugged": "{capacity}% ",
-      "format-alt": "{time} {icon}",
-      "format-icons": ["󰁺", "󰁽", "󰁿", "󰂁", "󰁹"]
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰁺", "󰁽", "󰁿", "󰂁", "󰁹"],
+    "interval": 60,
+    "on-update": "$HOME/dev/dotfiles/hypr/scripts/battery_notify.sh"
   },
   "battery#bat2": {
-      "bat": "BAT2"
+    "bat": "BAT2"
   },
   "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-   },
-  "pulseaudio": {
-      "format": "{volume}%{icon} {format_source}",
-      "format-bluetooth": "{volume}% {icon} {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": " {format_source}",
-      "format-source": "{volume}% ",
-      "format-source-muted": " ",
-      "format-icons": {
-          "headphone": "󰋋 ",
-          "hands-free": "󰋋 ",
-          "headset": "󰋋 ",
-          "phone": " ",
-          "portable": " ",
-          "car": " ",
-          "default": [" ", " ", "  "]
-      },
-      "on-click": "pavucontrol",
-      "max-volume": 150
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
-    "custom/powerprofile": {
-        "format": " {}",
-        "interval": 1,
-        "exec": "powerprofilesctl get",
-        "on-click": "~/dev/dotfiles/hypr/scripts/powerprofiles",
-        "tooltip": false
+  "pulseaudio": {
+    "format": "{volume}%{icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "{format-muted}",
+    "format-muted": " ",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": "󰋋 ",
+      "hands-free": "󰋋 ",
+      "headset": "󰋋 ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " ", "  "]
+    },
+    "on-click": "pavucontrol",
+    "max-volume": 150
+  },
+  "power-profiles-daemon": {
+    "format": "{icon} {profile}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
     }
+  }
 }

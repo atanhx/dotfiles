@@ -12,7 +12,6 @@ CONFIG_TARGETS=(
     "dunst"
     "fontconfig"
     "waybar"
-    "wlogout"
     "wofi"
     "nvim"
     "zed"
