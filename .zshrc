@@ -1,7 +1,9 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:$HOME/.local/bin:/opt/cuda/bin:"
 export PATH="$PATH:$HOME/.local/bin/bin"
-export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
+export PATH="/opt/cuda-11.7/bin:$PATH"
+export LD_LIBRARY_PATH="/opt/cuda-11.7/lib64:$LD_LIBRARY_PATH"
+# export PATH="$PATH:$HOME/.local/bin:/opt/cuda/bin:"
+# export LD_LIBRARY_PATH="/opt/cuda/lib64:$LD_LIBRARY_PATH"
 
 setopt HIST_IGNORE_SPACE
 
@@ -25,6 +27,7 @@ alias exiftool='/usr/bin/vendor_perl/exiftool'
 alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mp4 --embed-thumbnail --write-subs --embed-subs "$@"'
 alias tmux='tmux -u'
 alias jrnl=" jrnl"
+alias deepclean='yay -Rns $(pacman -Qtdq) --noconfirm; yay -Scc --noconfirm'
 # git aliases
 alias gita='git add'
 alias gitaa='git add --all'
@@ -818,15 +821,3 @@ fi
   'unset' '__fzf_completion_options'
 }
 ### end: completion.zsh ###
-# . "/home/um/.deno/env"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# bun completions
-[ -s "/home/um/.local/share/reflex/bun/_bun" ] && source "/home/um/.local/share/reflex/bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.local/share/reflex/bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
