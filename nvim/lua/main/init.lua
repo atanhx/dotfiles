@@ -1,5 +1,6 @@
 require("main.remap")
 require("main.set")
+require("main.utils.terminal")
 require("main.lazy")
 vim.lsp.set_log_level("debug")
 local augroup = vim.api.nvim_create_augroup

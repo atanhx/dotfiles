@@ -62,8 +62,10 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "Change to next t
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Change to previous tab" })
 vim.keymap.set(
 	"n",
-	"<leader>s",
+	"<leader>ts",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Replace word under cursor" }
 )
+vim.keymap.set("x", "<leader>vv", [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]], { desc = "Replace visual selection" })
+
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })

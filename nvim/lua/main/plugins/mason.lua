@@ -1,6 +1,10 @@
 return {
 	"williamboman/mason.nvim",
-	dependencies = { "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" },
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+	},
 	config = function()
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -17,6 +21,15 @@ return {
 			vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 		end
 		require("mason").setup()
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"clang-format",
+				"stylua",
+				"ruff",
+				"prettier",
+				"codelldb",
+			},
+		})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"basedpyright",
@@ -35,6 +48,30 @@ return {
 					require("lspconfig")[server_name].setup({
 						capabilities = lsp_capabilities,
 						on_attach = on_attach,
+					})
+				end,
+				clangd = function()
+					local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+					lsp_capabilities.offsetEncoding = { "utf-16" }
+
+					require("lspconfig").clangd.setup({
+						capabilities = lsp_capabilities,
+						on_attach = on_attach,
+						cmd = {
+							"clangd",
+							"--background-index",
+							"--clang-tidy",
+							"--header-insertion=iwyu",
+							"--completion-style=detailed",
+							"--function-arg-placeholders",
+							"--fallback-style=llvm",
+						},
+						init_options = {
+							usePlaceholders = true,
+							completeUnimported = true,
+							clangdFileStatus = true,
+						},
 					})
 				end,
 				lua_ls = function()

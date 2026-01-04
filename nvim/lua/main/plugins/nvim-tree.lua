@@ -12,6 +12,14 @@ return {
 			sort = {
 				sorter = "case_sensitive",
 			},
+			filters = {
+				dotfiles = false,
+				-- custom = { "^.git$" },
+			},
+			git = {
+				enable = true,
+				ignore = false,
+			},
 			view = {
 				width = 30,
 			},
