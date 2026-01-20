@@ -32,6 +32,12 @@ return {
 				lua = { "stylua" },
 				python = { "ruff", "ruff_format", "ruff_organize_imports" },
 				javascript = { "prettierd", "prettier" },
+				sql = { "sql_formatter" },
+			},
+			formatters = {
+				sql_formatter = {
+					prepend_args = { "-l", "postgresql" },
+				},
 			},
 		},
 	},

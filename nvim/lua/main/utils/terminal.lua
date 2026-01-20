@@ -64,4 +64,5 @@ vim.keymap.set({ "n", "t" }, "<A-3>", function()
 	M.toggle_terminal(3)
 end, { desc = "Toggle Term 3" })
 
+vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { desc = "Window command in terminal" })
 return M

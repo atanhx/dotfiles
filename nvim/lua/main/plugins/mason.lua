@@ -28,6 +28,8 @@ return {
 				"ruff",
 				"prettier",
 				"codelldb",
+				"postgres-language-server",
+				"sql-formatter",
 			},
 		})
 		require("mason-lspconfig").setup({

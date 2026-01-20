@@ -4,6 +4,7 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open quickfix list with diagnostics" })
 vim.keymap.set("n", "<leader>Q", "<cmd>wqa!<CR>", { desc = "Force save and  quit" })
+vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })
 
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 
