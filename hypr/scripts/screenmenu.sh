@@ -76,7 +76,7 @@ rec_full:  Record (F)
 rec_region:  Record (R)
 rec_cam:  Record (C)"
 
-choice_text=$(echo "$options" | cut -d':' -f2 | /usr/bin/wofi --conf $HOME/dev/dotfiles/wofi/custom/screenmenu/config --style $HOME/dev/dotfiles/wofi/custom/screenmenu/style.css --show dmenu --normal-window)
+choice_text=$(echo "$options" | cut -d':' -f2 | /usr/bin/wofi --show dmenu)
 
 if [[ -z "$choice_text" ]]; then
     exit 0
