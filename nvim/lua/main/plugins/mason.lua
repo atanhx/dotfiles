@@ -11,16 +11,18 @@ return {
 			signs = true,
 			update_in_insert = true,
 			underline = true,
-			severity_sort = false,
+			severity_sort = true,
 			float = true,
 		})
 
-		local on_attach = function(bufnr)
+		local on_attach = function(client, bufnr)
 			local opts = { buffer = bufnr, noremap = true, silent = true }
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 		end
+
 		require("mason").setup()
+
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				"clang-format",
@@ -34,7 +36,8 @@ return {
 		})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"basedpyright",
+				-- "basedpyright",
+				"ty",
 				"ruff",
 				"ts_ls",
 				"tailwindcss",
@@ -93,27 +96,52 @@ return {
 									library = {
 										vim.env.VIMRUNTIME,
 									},
+									checkThirdParty = false,
 								},
 							},
 						},
 					})
 				end,
-				basedpyright = function()
+
+				ty = function()
 					local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-					require("lspconfig").basedpyright.setup({
+					require("lspconfig").ty.setup({
 						capabilities = lsp_capabilities,
 						on_attach = on_attach,
 						settings = {
-							basedpyright = {
-								analysis = {
-									diagnosticsMode = "openFilesOnly",
-									autoImportCompletions = true,
+							ty = {
+								diagnosticMode = "openFilesOnly",
+								showSyntaxErrors = false,
+								inlayHints = {
+									variableTypes = false,
+									callArgumentNames = false,
+									returnTypes = false,
 								},
-								disableOrganizeImports = true,
+								completions = {
+									autoImport = true,
+								},
+								disableLanguageServices = false,
 							},
 						},
 					})
 				end,
+
+				-- basedpyright = function()
+				-- 	local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+				-- 	require("lspconfig").basedpyright.setup({
+				-- 		capabilities = lsp_capabilities,
+				-- 		on_attach = on_attach,
+				-- 		settings = {
+				-- 			basedpyright = {
+				-- 				analysis = {
+				-- 					diagnosticsMode = "openFilesOnly",
+				-- 					autoImportCompletions = true,
+				-- 				},
+				-- 				disableOrganizeImports = true,
+				-- 			},
+				-- 		},
+				-- 	})
+				-- end,
 				ruff = function()
 					local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 					require("lspconfig").ruff.setup({
@@ -130,7 +158,6 @@ return {
 									},
 								},
 								logLevel = "debug",
-								args = {},
 							},
 						},
 					})
