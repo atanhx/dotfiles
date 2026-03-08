@@ -1,0 +1,92 @@
+* {
+    background: #080a0dfa;
+    background-alt: #111418eb;
+    foreground: #c7bcc0;
+    foreground-active: #fff1f4;
+    border: #ff355e8c;
+    border-soft: #ff355e14;
+    accent: #ff355eb3;
+    urgent: #ff6b81;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 420px;
+    border: 1px;
+    border-color: @border;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+mainbox {
+    spacing: 8px;
+    padding: 10px;
+    background-color: transparent;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    spacing: 8px;
+    padding: 8px 10px;
+    border: 1px;
+    border-color: #ff355e47;
+    border-radius: 8px;
+    background-color: #16191ef5;
+    text-color: @foreground-active;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    enabled: true;
+    text-color: @accent;
+    background-color: transparent;
+}
+
+entry {
+    placeholder: "Search";
+    background-color: transparent;
+    text-color: @foreground-active;
+}
+
+listview {
+    columns: 1;
+    lines: 10;
+    spacing: 4px;
+    cycle: false;
+    dynamic: true;
+    fixed-height: false;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 7px 9px;
+    border: 1px;
+    border-color: @border-soft;
+    border-radius: 8px;
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+element-icon {
+    size: 1.1em;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected.normal {
+    background-color: #1a0f14fa;
+    border-color: @accent;
+    text-color: @foreground-active;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @foreground-active;
+}

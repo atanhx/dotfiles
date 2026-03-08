@@ -1,0 +1,17 @@
+configuration {
+    modes: "drun,run,ssh";
+    terminal: "alacritty";
+    font: "JetBrains Mono Nerd Font 13";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    case-sensitive: false;
+    click-to-exit: true;
+    steal-focus: true;
+    display-drun: "Applications";
+    drun-display-format: "{name}";
+}
+
+@theme "theme"

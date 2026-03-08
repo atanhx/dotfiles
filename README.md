@@ -12,7 +12,7 @@ Details about the setup:
 - **Shell Theme**: [Starship](https://starship.rs)
 - **Terminal**: [Alacritty](https://github.com/alacritty/alacritty)
 - **Editor**: [VS Code](https://code.visualstudio.com/) (Everforest Theme from marketplace)
-- **Launcher**: [Wofi](https://hg.sr.ht/~scoopta/wofi)
+- **Launcher**: [Rofi](https://github.com/davatorium/rofi)
 - **Notification**: [Dunst](https://github.com/dunst-project/dunst)
 - **Fonts & Other Packages**: See `pkgs.txt` file
 

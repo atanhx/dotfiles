@@ -20,7 +20,7 @@
   border: 1px double;
   border-color: #bdbdbd;
   border-radius: 5px;
-  background-color: #2e2e2e;
+  background-color: #1a1a1a;
   color: #f8f8f8;
 }
 
@@ -53,7 +53,7 @@
   font-family: JetBrains Mono Nerd Font;
   font-weight: 600;
   color: #d0d0d0;
-  background: #252525;
+  background: #151515;
   border-bottom: 1px solid #979797;
 }
 

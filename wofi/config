@@ -1,5 +1,15 @@
-width=330
-height=290
+width=420
+height=360
 location=center
-hide_search=true
+show=drun
+prompt=Applications
+matching=fuzzy
+insensitive=true
+allow_images=true
+image_size=24
+term=alacritty
+hide_scroll=true
+hide_search=false
+gtk_dark=true
+close_on_focus_loss=true
 

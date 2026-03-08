@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/rofi_menu.sh"
+
 XDG_SCREENSHOTS_DIR="${XDG_SCREENSHOTS_DIR:-$HOME/Pictures/Screenshots}"
 XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos/Recordings}"
 PID_FILE="/tmp/wf-recorder.pid"
@@ -76,7 +79,7 @@ rec_full:  Record (F)
 rec_region:  Record (R)
 rec_cam:  Record (C)"
 
-choice_text=$(echo "$options" | cut -d':' -f2 | /usr/bin/wofi --show dmenu)
+choice_text=$(printf '%s\n' "$options" | cut -d':' -f2 | rofi_run capture -dmenu -p "Capture" -i -no-custom -l 5)
 
 if [[ -z "$choice_text" ]]; then
     exit 0

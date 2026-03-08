@@ -5,8 +5,7 @@ hyprlock
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 waybar
-wofi
-vicinae-bin
+rofi-wayland
 wl-clipboard
 wf-recorder
 dunst

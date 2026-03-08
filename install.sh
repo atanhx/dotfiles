@@ -12,7 +12,7 @@ CONFIG_TARGETS=(
     "dunst"
     "fontconfig"
     "waybar"
-    "wofi"
+    "rofi"
     "nvim"
     "zed"
     "swaylock"
