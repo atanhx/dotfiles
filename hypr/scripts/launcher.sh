@@ -7,6 +7,6 @@ source "${SCRIPT_DIR}/rofi_menu.sh"
 exec rofi \
     -config "${SCRIPT_DIR}/../../rofi/config.rasi" \
     -show drun \
-    -display-drun "Applications" \
+    -display-drun "Apps" \
     -show-icons \
     -theme-str "$(rofi_theme_override launcher)"

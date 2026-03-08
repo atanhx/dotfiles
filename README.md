@@ -6,7 +6,7 @@ Details about the setup:
 
 - **OS**: Endeavour OS
 - **WM**: [Hyprland](https://github.com/hyprwm/Hyprland)
-- **Shell**: [bash](https://wiki.archlinux.org/title/bash)
+- **Shell**: [zsh](https://wiki.archlinux.org/title/Zsh) with [Oh My Zsh](https://ohmyz.sh/)
 - **Browser**: Firefox
 - **Bar**: [waybar](https://github.com/Alexays/Waybar)
 - **Shell Theme**: [Starship](https://starship.rs)
@@ -47,7 +47,14 @@ chmod +x ~/dev/dotfiles/install.sh
 ~/dev/dotfiles/install.sh
 ```
 
-After running this, it will create a _soft link_ from the `dotfiles` to `~/.config/*` folder. Again, this was optional.
+After running this, it will:
+
+- Create symlinks for the current config directories in this repo.
+- Link the home dotfiles currently tracked in this repo, including `.zshrc` and `.tmux.conf`.
+- Install Oh My Zsh with the official installer if `zsh` and `curl` are available and `~/.oh-my-zsh` does not exist yet.
+- Let the Oh My Zsh installer switch your default login shell to `zsh`.
+
+Oh My Zsh is not installed from `pkgs.txt`; it is bootstrapped by the install script using the official installer script.
 
 Tada! now you've installed the theme.
 
