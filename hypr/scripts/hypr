@@ -7,4 +7,6 @@ killall xdg-desktop-portal
 sleep 2
 /usr/lib/xdg-desktop-portal &
 
+kbuildsycoca6 --noincremental
+
 notify-send "Portals Started"

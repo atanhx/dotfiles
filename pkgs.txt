@@ -6,6 +6,8 @@ xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 waybar
 rofi
+ripgrep
+fzf
 wl-clipboard
 wf-recorder
 pipewire
@@ -33,6 +35,7 @@ python-pip
 obsidian
 anki
 kdeconnect
+sshfs
 qbittorrent
 syncthing
 papirus-icon-theme
@@ -49,7 +52,9 @@ noto-fonts-cjk
 ttf-cascadia-code-nerd
 ttf-jetbrains-mono-nerd
 ttf-bigblueterminal-nerd
-ttf-font-awesome-pro
+bat
+pavucontrol
+zsh-autosuggestions
 pamixer
 playerctl
 zoxide

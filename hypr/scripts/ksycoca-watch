@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share"
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+
+sleep 10
+
+while true; do
+    kbuildsycoca6 --noincremental
+    sleep 300  
+done

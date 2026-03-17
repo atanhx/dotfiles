@@ -8,11 +8,9 @@
   "modules-right": [
     "custom/recording",
     "power-profiles-daemon",
-    "custom/powerprofile",
     "clock",
     "pulseaudio",
     "backlight",
-    "custom/updates",
     "battery",
     "tray",
     "custom/powermenu"

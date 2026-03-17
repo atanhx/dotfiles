@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+# tmux-sessionizer
+#
+# Usage:
+#   tmux-sessionizer              — fzf picker
+#   tmux-sessionizer <path>       — jump directly to that path
+#   tmux-sessionizer <name>       — jump directly to existing session by name
+#
+# In config: 
+# One directory per line. Lines starting with # are ignored.
+#   Example:
+#     ~/dev/projects
+#     ~/work
+#     ~/.config
+#
+# Zsh bind  — add to ~/.zshrc:
+#   bindkey -s '^f' 'tmux-sessionizer\n'
+#
+# Neovim bind:
+#   vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+#
+# Tmux bind (already in tmux.conf via M-p):
+#   bind-key -r f run-shell "tmux neww tmux-sessionizer"
+
+CONFIG="$HOME/dev/dotfiles/tmux-sessionizer/tmux-sessionizer-config"
+SEARCH_DEPTH=1
+
+# ─── Read search directories from config, fall back to default ────────────────
+get_search_dirs() {
+    if [[ -f "$CONFIG" ]]; then
+        while IFS= read -r line; do
+            # skip blank lines and comments
+            [[ -z "$line" || "$line" == \#* ]] && continue
+            # expand ~ manually since the file is read as a string
+            dir="${line/#\~/$HOME}"
+            [[ -d "$dir" ]] && echo "$dir"
+        done < "$CONFIG"
+    else
+        # default if no config file exists yet
+        echo "$HOME/dev/projects"
+    fi
+}
+
+if [[ $# -eq 1 ]]; then
+    selected="$1"
+else
+    # Build candidate list: all subdirs of every configured search dir
+    candidates=$(
+        while IFS= read -r dir; do
+            find "$dir" -mindepth 1 -maxdepth "$SEARCH_DEPTH" -type d 2>/dev/null
+        done < <(get_search_dirs)
+    )
+
+    selected=$(echo "$candidates" | fzf --prompt "  " --height=100%)
+fi
+
+[[ -z "$selected" ]] && exit 0
+
+# Session name: basename with dots/spaces/colons replaced by underscores
+selected_name=$(basename "$selected" | tr '.[:space:]:' '___')
+
+# ─── Create session if it doesn't exist ──────────────────────────────────────
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+    tmux send-keys -t "$selected_name" "nvim ." Enter
+fi
+# ─── Switch or attach ─────────────────────────────────────────────────────────
+if [[ -n "$TMUX" ]]; then
+    tmux switch-client -t "$selected_name"
+else
+    tmux attach-session -t "$selected_name"
+fi

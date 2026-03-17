@@ -1,0 +1,7 @@
+okular
+evince
+visual-studio-code-bin
+zotero-bin
+docker
+docker-compose
+proton-vpn-gtk-app

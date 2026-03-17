@@ -1,0 +1,7 @@
+# One directory per line.
+# Lines starting with # are ignored. Blank lines are ignored.
+# Tilde (~) is expanded automatically.
+# All direct subdirectories of each path become selectable sessions.
+
+~/dev/projects/
+~/dev/dotfiles/

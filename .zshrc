@@ -4,8 +4,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin/bin:/opt/cuda-11.7/bin:$PATH"
 export PATH="$PATH:$HOME/dev/projects/flutter/bin"
+export PATH="$PATH:$HOME/dev/dotfiles/tmux-sessionizer/"
 export LD_LIBRARY_PATH="/opt/cuda-11.7/lib64:$LD_LIBRARY_PATH"
 export NVM_DIR="$HOME/.nvm"
+export EDITOR="nvim"
+export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
 # =============================================================================
 # 2. OH-MY-ZSH CONFIG
@@ -13,6 +16,10 @@ export NVM_DIR="$HOME/.nvm"
 ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions)
+
+# zsh-completion plugin 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,7 +55,7 @@ alias jrnl=" jrnl"
 alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mp4 --embed-thumbnail --write-subs --embed-subs "$@"'
 
 # Dev / System
-alias base_env='source ~/dev/base/bin/activate'
+alias base_env='source /home/um/dev/projects/base_env/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 
 # Git Aliases
@@ -98,3 +105,8 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# opencode
+export PATH=/home/um/.opencode/bin:$PATH
+
+bindkey -s '^f' 'tmux-sessionizer\n'
