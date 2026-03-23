@@ -5,3 +5,9 @@ zotero-bin
 docker
 docker-compose
 proton-vpn-gtk-app
+exfatprogs
+woeusb-ng
+gparted
+gnome-disk-utility
+debtap
+google-chrome

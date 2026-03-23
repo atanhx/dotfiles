@@ -15,7 +15,7 @@ export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/
 # =============================================================================
 ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-autosuggestions)
+plugins=()
 
 # zsh-completion plugin 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
