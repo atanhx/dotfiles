@@ -11,3 +11,4 @@ gparted
 gnome-disk-utility
 debtap
 google-chrome
+libreoffice-fresh

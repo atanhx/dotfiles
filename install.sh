@@ -16,6 +16,7 @@ CONFIG_TARGETS=(
     "rofi"
     "nvim"
     "wofi"
+    "zed"
 )
 
 HOME_TARGETS=(
@@ -37,6 +38,7 @@ main() {
 
     ensure_oh_my_zsh
     setup_zoxide
+    fix_xdg_menu
 
     echo "[DONE]: Dotfiles setup complete!"
 }
@@ -100,3 +102,24 @@ setup_zoxide() {
 }
 
 main
+
+fix_xdg_menu() {
+    sudo pacman -S archlinux-xdg-menu
+
+    local menu_source=""
+    if [[ -f /etc/xdg/menus/arch-applications.menu ]]; then
+        menu_source="/etc/xdg/menus/arch-applications.menu"
+    elif [[ -f /etc/xdg/menus/plasma-applications.menu ]]; then
+        menu_source="/etc/xdg/menus/plasma-applications.menu"
+    else
+        echo "Error: Neither arch-applications.menu nor plasma-applications.menu found." >&2
+        return 1
+    fi
+
+    sudo ln -sf "$menu_source" /etc/xdg/menus/applications.menu
+
+    sudo update-desktop-database
+    kbuildsycoca6 --noincremental
+    
+    echo "[DONE]: XDG Menu Prefix udpated"
+}

@@ -1,0 +1,143 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // File picker and Project viewer
+  {
+    "context": "vim_mode == normal && (Workspace || Editor || EmptyPane)",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+    },
+  },
+  // Code comment
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      "g c": "editor::ToggleComments",
+    },
+  },
+  // Quick nomral mode
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore",
+      "j k": "vim::NormalBefore",
+    },
+  },
+  // Rename the variable by all instance and current line (cc or cr in normal mode)
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "r": "editor::Rename",
+    },
+  },
+  // Terminal navigation and toggle
+  {
+    "context": "(Workspace || Editor) && vim_mode == normal",
+    "bindings": {
+      "space t t": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "(Terminal || Dock || Workspace || Editor)",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
+  // Dock
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-f": "workspace::ToggleLeftDock",
+      "alt-a": "workspace::ToggleRightDock",
+      "space q": "pane::CloseActiveItem",
+    },
+  },
+  // Editor
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // LSP
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+
+      "space c r": "editor::Rename",
+      "space c f": "buffer_search::DeployReplace",
+
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
+      "g t": "editor::GoToTypeDefinition",
+      "g T": "editor::GoToTypeDefinitionSplit",
+      "g r": "editor::FindAllReferences",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "s s": "outline::Toggle",
+      "s S": "project_symbols::Toggle",
+      "space x x": "diagnostics::Deploy",
+
+      // Close
+      "space q": "pane::CloseActiveItem",
+      "shift-q": "pane::CloseAllItems",
+      "ctrl-q": "pane::CloseActiveItem",
+
+      // Buffers?
+      "shift-j": "pane::ActivatePreviousItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-k": "pane::ActivateNextItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space /": "pane::DeploySearch",
+      "space e": "pane::RevealInProjectPanel",
+      "ctrl-s": "workspace::Save",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "g o": "vim::StartOfDocument",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "K": "editor::Hover",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "ctrl-w v": "pane::SplitRight",
+      "ctrl-w s": "pane::SplitDown",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "z z": "editor::ScrollCursorCenter",
+      "z t": "editor::ScrollCursorTop",
+      "z b": "editor::ScrollCursorBottom",
+    },
+  },
+]

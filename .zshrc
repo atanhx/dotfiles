@@ -9,11 +9,12 @@ export LD_LIBRARY_PATH="/opt/cuda-11.7/lib64:$LD_LIBRARY_PATH"
 export NVM_DIR="$HOME/.nvm"
 export EDITOR="nvim"
 export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+export CHROME_EXECUTABLE="google-chrome-stable"
 
 # =============================================================================
 # 2. OH-MY-ZSH CONFIG
 # =============================================================================
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 plugins=()
 
@@ -52,7 +53,7 @@ alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
 alias tmux='tmux -u'
 alias jrnl=" jrnl"
-alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mp4 --embed-thumbnail --write-subs --embed-subs "$@"'
+alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mkv --embed-thumbnail --write-subs --embed-subs "$@"'
 
 # Dev / System
 alias base_env='source /home/um/dev/projects/base_env/bin/activate'
@@ -110,3 +111,4 @@ fi
 export PATH=/home/um/.opencode/bin:$PATH
 
 bindkey -s '^f' 'tmux-sessionizer\n'
+eval "$(starship init zsh)"

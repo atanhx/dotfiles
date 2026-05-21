@@ -1,0 +1,36 @@
+require("colorizer").setup({
+  user_commands = true,
+  lazy_load = false,
+  user_default_options = {
+    names = true,
+    names_opts = {
+      lowercase = true,
+      camelcase = true,
+      uppercase = false,
+      strip_digits = false,
+    },
+    names_custom = false,
+    RGB = true,
+    RGBA = true,
+    RRGGBB = true,
+    RRGGBBAA = true,
+    AARRGGBB = true,
+    rgb_fn = true,
+    hsl_fn = true,
+    css = true,
+    css_fn = true,
+    tailwind = false,
+    tailwind_opts = {
+      update_names = false,
+    },
+    sass = { enable = true, parsers = { "css" } },
+    mode = "background",
+    virtualtext = "■",
+    virtualtext_inline = false,
+    virtualtext_mode = "foreground",
+    always_update = true,
+    hooks = {
+      disable_line_highlight = false,
+    },
+  },
+})

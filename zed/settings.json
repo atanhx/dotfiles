@@ -1,0 +1,135 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "subtle",
+  },
+  "agent": {
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "default": "allow"
+        }
+      }
+    },
+    "dock": "right",
+    "default_model": {
+      "effort": "xhigh",
+      "provider": "copilot_chat",
+      "model": "gpt-5.2-codex",
+      "enable_thinking": true,
+    },
+    "show_turn_stats": true,
+    "favorite_models": [],
+    "model_parameters": [],
+    "enable_feedback": false,
+  },
+  "auto_signature_help": true,
+  "lsp": {
+    "clangd": {
+      "enable_lsp_tasks": true,
+    },
+    "ruff": {
+      "enable_lsp_tasks": true,
+      "initialization_options": {
+        "settings": {
+          "lineLength": 120,
+          "organizeImports": true,
+          "lint": { "enabled": true },
+        },
+      },
+    },
+  },
+  "languages": {
+    "Python": {
+      "enable_language_server": true,
+      "language_servers": ["ruff", "ty"],
+      "formatter": "language_server",
+      "inlay_hints": {
+        "enabled": true,
+      },
+    },
+    "C++": {
+      "language_servers": ["clangd"],
+      "formatter": "language_server",
+      "inlay_hints": {
+        "enabled": true,
+      },
+    },
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "colorize_brackets": true,
+  "inlay_hints": {
+    "show_background": false,
+    "enabled": true,
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
+  "minimap": {
+    "show": "always",
+  },
+  "relative_line_numbers": "enabled",
+  "which_key": {
+    "enabled": true,
+  },
+  "autosave": "off",
+  "text_rendering_mode": "subpixel",
+  "ui_font_family": "Adwaita Sans",
+  "ui_font_weight": 500.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 18.0,
+  "buffer_font_size": 17.0,
+  "theme": {
+    "mode": "light",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "indent_guides": {
+    "enabled": true,
+  },
+  "show_whitespaces": "selection",
+  "scrollbar": {
+    "show": "system",
+  },
+}
