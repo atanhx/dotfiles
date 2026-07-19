@@ -6,6 +6,7 @@ mkdir -p "$PACK_DIR"
 
 declare -A REPOS=(
   ["kanagawa.nvim"]="rebelot/kanagawa.nvim"
+  ["gruvbox-material"]="f4z3r/gruvbox-material.nvim"
   ["nvim-cmp"]="hrsh7th/nvim-cmp"
   ["cmp-nvim-lsp"]="hrsh7th/cmp-nvim-lsp"
   ["cmp-path"]="hrsh7th/cmp-path"

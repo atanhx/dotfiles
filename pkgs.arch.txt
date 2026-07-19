@@ -68,3 +68,5 @@ sway-contrib
 nm-connection-editor
 network-manager-applet
 yazi
+handlr
+handlr-regex

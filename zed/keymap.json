@@ -41,7 +41,10 @@
   {
     "context": "(Workspace || Editor) && vim_mode == normal",
     "bindings": {
+      "alt-f": "project_panel::ToggleFocus",
+      "space f e": "project_panel::ToggleFocus",
       "space t t": "terminal_panel::ToggleFocus",
+      "space q": "pane::CloseActiveItem",
     },
   },
   {
@@ -51,6 +54,7 @@
       "ctrl-w l": "workspace::ActivatePaneRight",
       "ctrl-w k": "workspace::ActivatePaneUp",
       "ctrl-w j": "workspace::ActivatePaneDown",
+
     },
   },
   // Dock
@@ -59,7 +63,6 @@
     "bindings": {
       "alt-f": "workspace::ToggleLeftDock",
       "alt-a": "workspace::ToggleRightDock",
-      "space q": "pane::CloseActiveItem",
     },
   },
   // Editor
@@ -104,6 +107,14 @@
       "space /": "pane::DeploySearch",
       "space e": "pane::RevealInProjectPanel",
       "ctrl-s": "workspace::Save",
+
+      // Tab
+      "space t n": "workspace::NewFile",
+
+      // Editing
+      "alt-shift-up": "editor::DuplicateLineUp",
+      "alt-shift-down": "editor::DuplicateLineDown",
+      "ctrl-a": "editor::SelectAll",
     },
   },
   {

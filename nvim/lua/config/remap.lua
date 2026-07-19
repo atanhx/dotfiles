@@ -57,10 +57,10 @@ vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>", { desc = "Change to pr
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "Change to next tab" })
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Change to previous tab" })
 vim.keymap.set(
-  "n",
-  "<leader>sr",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word under cursor" }
+	"n",
+	"<leader>sr",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word under cursor" }
 )
 vim.keymap.set("x", "<leader>sR", [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]], { desc = "Replace visual selection" })
 
@@ -70,5 +70,3 @@ vim.keymap.set("n", "<M-S-Up>", "<cmd>t-1<CR>", { desc = "Duplicate line up" })
 vim.keymap.set("n", "<M-S-Down>", "<cmd>t.<CR>", { desc = "Duplicate line down" })
 vim.keymap.set("x", "<M-S-Up>", ":<C-u>'<,'>t'<-1<CR>gv", { desc = "Duplicate selection up" })
 vim.keymap.set("x", "<M-S-Down>", ":<C-u>'<,'>t'>+1<CR>gv", { desc = "Duplicate selection down" })
-
-

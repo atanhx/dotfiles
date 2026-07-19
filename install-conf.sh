@@ -66,7 +66,7 @@ link_item() {
 
 ensure_oh_my_zsh() {
     if ! command -v zsh >/dev/null 2>&1; then
-        echo "[WARNING]: zsh is not installed. Install it from pkgs.txt first, then rerun this script."
+        echo "[WARNING]: zsh is not installed. Install it from pkgs.arch.txt first, then rerun this script."
         return
     fi
 
@@ -103,8 +103,29 @@ setup_zoxide() {
 
 main
 
+detect_distro() {
+    if [ -r /etc/os-release ]; then
+        . /etc/os-release
+        echo "${ID:-unknown}"
+    else
+        echo "unknown"
+    fi
+}
+
 fix_xdg_menu() {
-    sudo pacman -S archlinux-xdg-menu
+    local distro
+    distro="$(detect_distro)"
+
+    if [[ "$distro" == "arch" || "$distro" == "endeavouros" || "$distro" == "manjaro" || "$distro" == "garuda" ]]; then
+        sudo pacman -S archlinux-xdg-menu
+    elif [[ "$distro" == "debian" || "$distro" == "ubuntu" || "$distro" == "linuxmint" || "$distro" == "pop" || "$distro" == "zorin" ]]; then
+        sudo apt install -y xdg-utils
+    elif [[ "$distro" == "fedora" ]]; then
+        sudo dnf install -y xdg-utils
+    else
+        echo "[WARNING]: Unknown distro '$distro'; skipping XDG menu setup." >&2
+        return 0
+    fi
 
     local menu_source=""
     if [[ -f /etc/xdg/menus/arch-applications.menu ]]; then
@@ -118,8 +139,12 @@ fix_xdg_menu() {
 
     sudo ln -sf "$menu_source" /etc/xdg/menus/applications.menu
 
-    sudo update-desktop-database
-    kbuildsycoca6 --noincremental
-    
-    echo "[DONE]: XDG Menu Prefix udpated"
+    if command -v update-desktop-database >/dev/null 2>&1; then
+        sudo update-desktop-database
+    fi
+    if command -v kbuildsycoca6 >/dev/null 2>&1; then
+        kbuildsycoca6 --noincremental
+    fi
+
+    echo "[DONE]: XDG Menu Prefix updated"
 }

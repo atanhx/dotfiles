@@ -45,6 +45,7 @@ alias deepclean='yay -Rns $(pacman -Qtdq) --noconfirm; yay -Scc --noconfirm'
 alias n='nvim .'
 alias v='nvim .'
 alias vim='nvim .'
+alias zed='zeditor .'
 alias cat='bat -P --plain'
 
 # Tools
@@ -112,3 +113,8 @@ export PATH=/home/um/.opencode/bin:$PATH
 
 bindkey -s '^f' 'tmux-sessionizer\n'
 eval "$(starship init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/um/.lmstudio/bin"
+# End of LM Studio CLI section
+

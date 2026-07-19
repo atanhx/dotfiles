@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
+  "proxy": "",
   "project_panel": {
     "dock": "left",
   },
@@ -21,33 +23,95 @@
   },
   "agent_servers": {
     "opencode": {
-      "type": "registry"
+      "default_config_options": {
+        "effort": "max",
+        "model": "opencode/deepseek-v4-flash-free"
+      },
+      "favorite_config_option_values": {
+        "model": [
+          "opencode/deepseek-v4-flash-free",
+          "opencode/mimo-v2.5-free",
+          "opencode/big-pickle",
+          "opencode/nemotron-3-super-free",
+          "opencode/nemotron-3-ultra-free"
+        ]
+      },
+      "type": "registry",
     },
     "github-copilot-cli": {
+      "default_config_options": {
+        "mode": "https://agentclientprotocol.com/protocol/session-modes#agent",
+        "allow_all": "on",
+        "reasoning_effort": "xhigh"
+      },
       "type": "registry",
     },
   },
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "zed",
     "mode": "subtle",
   },
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "doc.rust-lang.org",
+        "cppreference.com",
+        "raw.githubusercontent.com"
+      ]
+    },
     "tool_permissions": {
       "tools": {
-        "terminal": {
+        "create_directory": {
           "default": "allow"
-        }
-      }
+        },
+        "write_file": {
+          "default": "allow"
+        },
+        "edit_file": {
+          "default": "allow"
+        },
+        "search_web": {
+          "default": "allow"
+        },
+        "fetch": {
+          "default": "allow"
+        },
+        "skill": {
+          "default": "allow"
+        },
+        "terminal": {
+          "default": "allow",
+        },
+      },
     },
     "dock": "right",
     "default_model": {
-      "effort": "xhigh",
-      "provider": "copilot_chat",
-      "model": "gpt-5.2-codex",
+      "effort": "max",
+      "provider": "zed.dev",
+      "model": "claude-sonnet-5",
       "enable_thinking": true,
     },
     "show_turn_stats": true,
-    "favorite_models": [],
+    "favorite_models": [
+      {
+        "provider": "zed.dev",
+        "model": "claude-sonnet-4-6",
+        "enable_thinking": true,
+        "effort": "medium"
+      },
+      {
+        "provider": "zed.dev",
+        "model": "gpt-5.5",
+        "enable_thinking": true,
+        "effort": "xhigh"
+      },
+      {
+        "provider": "zed.dev",
+        "model": "gpt-5.6-sol",
+        "enable_thinking": true,
+        "effort": "high"
+      }
+    ],
     "model_parameters": [],
     "enable_feedback": false,
   },
@@ -55,6 +119,9 @@
   "lsp": {
     "clangd": {
       "enable_lsp_tasks": true,
+      "binary": {
+        "arguments": ["--background-index", "--clang-tidy"],
+      },
     },
     "ruff": {
       "enable_lsp_tasks": true,
@@ -79,6 +146,7 @@
     "C++": {
       "language_servers": ["clangd"],
       "formatter": "language_server",
+      "format_on_save": "on",
       "inlay_hints": {
         "enabled": true,
       },
@@ -104,7 +172,11 @@
   "which_key": {
     "enabled": true,
   },
-  "autosave": "off",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 100,
+    },
+  },
   "text_rendering_mode": "subpixel",
   "ui_font_family": "Adwaita Sans",
   "ui_font_weight": 500.0,
@@ -117,13 +189,17 @@
     "trust_all_worktrees": true,
   },
   "vim_mode": true,
-  "icon_theme": "Zed (Default)",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "VSCode Icons for Zed (Dark Official Icons)",
+    "dark": "Zed (Default)",
+  },
   "ui_font_size": 18.0,
   "buffer_font_size": 17.0,
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "Ayu Dark",
   },
   "indent_guides": {
     "enabled": true,
@@ -132,4 +208,8 @@
   "scrollbar": {
     "show": "system",
   },
+  "feature_flags": {
+    "notebooks": "on",
+    "tabular-data-preview": "on"
+  }
 }
