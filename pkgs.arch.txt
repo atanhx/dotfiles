@@ -70,3 +70,5 @@ network-manager-applet
 yazi
 handlr
 handlr-regex
+zed
+starship

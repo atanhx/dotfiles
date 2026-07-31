@@ -5,6 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin/bin:/opt/cuda-11.7/bin:$PATH"
 export PATH="$PATH:$HOME/dev/projects/flutter/bin"
 export PATH="$PATH:$HOME/dev/dotfiles/tmux-sessionizer/"
+export PATH="$PATH:$HOME/.local/bin"
 export LD_LIBRARY_PATH="/opt/cuda-11.7/lib64:$LD_LIBRARY_PATH"
 export NVM_DIR="$HOME/.nvm"
 export EDITOR="nvim"
@@ -45,7 +46,6 @@ alias deepclean='yay -Rns $(pacman -Qtdq) --noconfirm; yay -Scc --noconfirm'
 alias n='nvim .'
 alias v='nvim .'
 alias vim='nvim .'
-alias zed='zeditor .'
 alias cat='bat -P --plain'
 
 # Tools

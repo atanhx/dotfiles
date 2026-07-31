@@ -101,8 +101,6 @@ setup_zoxide() {
     fi
 }
 
-main
-
 detect_distro() {
     if [ -r /etc/os-release ]; then
         . /etc/os-release
@@ -148,3 +146,5 @@ fix_xdg_menu() {
 
     echo "[DONE]: XDG Menu Prefix updated"
 }
+
+main
