@@ -112,7 +112,17 @@ fi
 export PATH=/home/um/.opencode/bin:$PATH
 
 bindkey -s '^f' 'tmux-sessionizer\n'
-eval "$(starship init zsh)"
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+
+# load env
+if [ -f "$HOME/dev/.env" ]; then
+  set -a
+  source "$HOME/dev/.env"
+  set +a
+fi
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/um/.lmstudio/bin"
