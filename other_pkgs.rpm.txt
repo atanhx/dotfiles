@@ -1,6 +1,0 @@
-okular
-evince
-exfatprogs
-gparted
-gnome-disk-utility
-libreoffice

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="${HOME}/dev/dotfiles"
 CONFIG_DIR="${HOME}/.config"
@@ -51,7 +51,7 @@ link_item() {
         echo "[WARNING]: Source '${src}' not found. Skipping."
         return
     fi
-    
+
     if [ -L "${dest}" ]; then
         echo "Removing existing symlink at '${dest}'."
         rm "${dest}"
@@ -114,16 +114,15 @@ fix_xdg_menu() {
     local distro
     distro="$(detect_distro)"
 
-    if [[ "$distro" == "arch" || "$distro" == "endeavouros" || "$distro" == "manjaro" || "$distro" == "garuda" ]]; then
-        sudo pacman -S archlinux-xdg-menu
-    elif [[ "$distro" == "debian" || "$distro" == "ubuntu" || "$distro" == "linuxmint" || "$distro" == "pop" || "$distro" == "zorin" ]]; then
-        sudo apt install -y xdg-utils
-    elif [[ "$distro" == "fedora" ]]; then
-        sudo dnf install -y xdg-utils
-    else
-        echo "[WARNING]: Unknown distro '$distro'; skipping XDG menu setup." >&2
-        return 0
-    fi
+    case "$distro" in
+        arch|endeavouros|manjaro|garuda|cachyos) ;;
+        *)
+            echo "[WARNING]: Unsupported distro '$distro'; skipping XDG menu setup." >&2
+            return 0
+            ;;
+    esac
+
+    sudo pacman -S --needed --noconfirm archlinux-xdg-menu
 
     local menu_source=""
     if [[ -f /etc/xdg/menus/arch-applications.menu ]]; then

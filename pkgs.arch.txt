@@ -53,6 +53,8 @@ noto-fonts-cjk
 ttf-cascadia-code-nerd
 ttf-jetbrains-mono-nerd
 ttf-bigblueterminal-nerd
+ttf-fira-code
+ttf-dejavu
 bat
 pavucontrol
 zsh-autosuggestions
@@ -72,3 +74,8 @@ handlr
 handlr-regex
 zed
 starship
+qalculate-qt
+xorg-xhost
+btop
+github-cli
+flatpak

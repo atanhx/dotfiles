@@ -248,7 +248,7 @@ hl.gesture({ fingers = 4, direction = "up", action = "fullscreen" })
 
 hl.window_rule({
 	name = "resize-and-float",
-	match = { class = "io.github.Qalculate.qalculate-qt" },
+	match = { class = "qalculate-qt" },
 	float = true,
 	size = { 500, 700 },
 })
