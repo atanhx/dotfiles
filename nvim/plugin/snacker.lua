@@ -84,7 +84,12 @@ vim.keymap.set("n", "<leader>ff", function()
 end, { desc = "Find Files" })
 
 vim.keymap.set("n", "<leader>fg", function()
-	Snacks.picker.git_files()
+	if Snacks.git and Snacks.git.get_root() then
+		Snacks.picker.git_files()
+	else
+		Snacks.notify.warn("Not in a git repository, falling back to files.", { title = "Git Files" })
+		Snacks.picker.files()
+	end
 end, { desc = "Find Git Files" })
 
 vim.keymap.set("n", "<leader>fp", function()
@@ -279,11 +284,11 @@ vim.keymap.set("n", "<leader>un", function()
 	Snacks.notifier.hide()
 end, { desc = "Dismiss All Notifications" })
 
-vim.keymap.set("n", "<c-/>", function()
+vim.keymap.set({ "n", "t" }, "<c-/>", function()
 	Snacks.terminal()
 end, { desc = "Terminal" })
 
-vim.keymap.set("n", "<c-_>", function()
+vim.keymap.set({ "n", "t" }, "<c-_>", function()
 	Snacks.terminal()
 end, { desc = "which_key_ignore" })
 

@@ -47,6 +47,9 @@ rofi_theme_override() {
         shell-history-action)
             printf '%s' "window { width: 260px; } listview { lines: 2; } ${dmenu_list_theme} $(rofi_heading_only_theme)"
             ;;
+        vpn)
+            printf '%s' "window { width: 340px; } listview { lines: 8; } ${dmenu_list_theme} $(rofi_heading_only_theme)"
+            ;;
         *)
             printf 'Unknown rofi preset: %s\n' "$preset" >&2
             return 1

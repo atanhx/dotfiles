@@ -23,7 +23,7 @@ case "$choice_key" in
         exec hyprlock
         ;;
     logout)
-        exec hyprctl dispatch exit
+        exec hyprctl dispatch 'hl.dsp.exit()'
         ;;
     suspend)
         hyprlock &

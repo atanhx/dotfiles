@@ -1,5 +1,6 @@
 okular
 evince
+calibre
 visual-studio-code-bin
 zotero-bin
 docker

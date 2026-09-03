@@ -2,11 +2,12 @@
 set -euo pipefail
 
 PACK_DIR="$HOME/dev/dotfiles/nvim/pack/myplugins/start"
-mkdir -p "$PACK_DIR"
+MODE="sync" # sync | update | clone
 
 declare -A REPOS=(
   ["kanagawa.nvim"]="rebelot/kanagawa.nvim"
   ["gruvbox-material"]="f4z3r/gruvbox-material.nvim"
+  ["bufferline.nvim"]="akinsho/bufferline.nvim"
   ["nvim-cmp"]="hrsh7th/nvim-cmp"
   ["cmp-nvim-lsp"]="hrsh7th/cmp-nvim-lsp"
   ["cmp-path"]="hrsh7th/cmp-path"
@@ -42,17 +43,38 @@ declare -A REPOS=(
   ["yazi.nvim"]="mikavilpas/yazi.nvim"
 )
 
+usage() {
+    echo "Usage: $0 [--update|--clone]"
+    echo "  default  : clone missing plugins and update existing ones"
+    echo "  --update : only update existing plugins"
+    echo "  --clone  : only clone missing plugins"
+}
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --update) MODE="update" ;;
+        --clone) MODE="clone" ;;
+        -h|--help) usage; exit 0 ;;
+        *) echo "Unknown argument: $1"; usage; exit 1 ;;
+    esac
+    shift
+done
+
+mkdir -p "$PACK_DIR"
+
 for dir in "${!REPOS[@]}"; do
-  repo="${REPOS[$dir]}"
-  target="$PACK_DIR/$dir"
-  if [ -d "$target" ]; then
-    echo "Already exists: $dir"
-  else
-    echo "Cloning $repo -> $dir"
-    git clone --depth 1 "https://github.com/$repo.git" "$target"
-  fi
+    repo="${REPOS[$dir]}"
+    target="$PACK_DIR/$dir"
+    if [ -d "$target" ]; then
+        if [ "$MODE" != "clone" ]; then
+            echo "Updating $dir..."
+            git -C "$target" pull --ff-only
+        fi
+    elif [ "$MODE" != "update" ]; then
+        echo "Cloning $repo -> $dir"
+        git clone --depth 1 "https://github.com/$repo.git" "$target"
+    fi
 done
 
 echo ""
-echo "All plugins cloned to $PACK_DIR"
-echo "Restart Neovim for changes to take effect."
+echo "Done. Restart Neovim for changes to take effect."

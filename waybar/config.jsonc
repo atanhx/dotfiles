@@ -3,15 +3,16 @@
   // "height": 10,
   "position": "top",
   "spacing": 5,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "custom/scratchpad"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "custom/recording",
     "power-profiles-daemon",
-    "clock",
+    "custom/clock",
     "pulseaudio",
     "backlight",
     "battery",
+    "custom/vpn",
     "tray",
     "custom/powermenu"
   ],
@@ -19,28 +20,36 @@
     "disable-scroll": true,
     "on-click": "activate",
     "all-outputs": true,
-    "format": "{icon}",
+    "format": "{icon} {windows}",
     "format-icons": {
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
-      "9": "IX",
-      "10": "X"
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
     },
-    "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
-    "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null"
+    "workspace-taskbar": {
+      "enable": true,
+      "format": "{icon}",
+      "icon-size": 14,
+      "icon-theme": "Papirus",
+      "update-active-window": true,
+      "on-click-window": "hyprctl dispatch 'hl.dsp.focus({ window = \"address:{address}\" })'"
+    },
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'"
   },
   "custom/powermenu": {
-    "format": "⏻",
+    "format": "󰐦",
     "on-click": "$HOME/dev/dotfiles/hypr/scripts/powermenu.sh"
   },
   "custom/recording": {
-    "format": " {}",
+    "format": "    {}",
     "exec-if": "test -f /tmp/wf-recorder.pid",
     "exec": "~/dev/dotfiles/hypr/scripts/waybar_timer.sh",
     "interval": 1,
@@ -55,52 +64,56 @@
     "icon-size": 13,
     "spacing": 5
   },
-  "clock": {
-    "format": "{:%d-%m-%y | %I:%M:%S %p}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "interval": 1
+  "custom/clock": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "python3 $HOME/dev/dotfiles/hypr/scripts/clock.py",
+    "interval": 1,
+    "tooltip": true
   },
   "battery": {
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
     "format-icons": ["󰁺", "󰁽", "󰁿", "󰂁", "󰁹"],
     "interval": 60,
-    "on-update": "$HOME/dev/dotfiles/hypr/scripts/battery_notify.sh"
+    "on-update": "$HOME/dev/dotfiles/hypr/scripts/battery_notify.sh",
+    "on-click": false
   },
   "battery#bat2": {
-    "bat": "BAT2"
+    "bat": "BAT2",
+    "on-click": ""
   },
   "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰖨 "]
   },
   "pulseaudio": {
-    "format": "{volume}%{icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "{format-muted}",
-    "format-muted": " ",
-    "format-source": "{volume}% ",
-    "format-source-muted": " ",
+    "format": "{icon}    {volume}%   {format_source}",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": "  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": "  {volume}%",
+    "format-source-muted": "",
     "format-icons": {
-      "headphone": "󰋋 ",
-      "hands-free": "󰋋 ",
-      "headset": "󰋋 ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": [" ", " ", "  "]
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󱡏 ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
     "max-volume": 150
   },
   "power-profiles-daemon": {
-    "format": "{icon} {profile}",
+    "format": "{icon}   {profile}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
@@ -109,5 +122,22 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+  "custom/vpn": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/dev/dotfiles/hypr/scripts/vpn.sh",
+    "interval": 5,
+    "signal": 8,
+    "on-click": "$HOME/dev/dotfiles/hypr/scripts/vpn.sh --menu"
+  },
+  "custom/scratchpad": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "$HOME/dev/dotfiles/hypr/scripts/scratchpad.sh",
+    "on-click": "$HOME/dev/dotfiles/hypr/scripts/scratchpad.sh --toggle",
+    "on-click-right": "$HOME/dev/dotfiles/hypr/scripts/scratchpad.sh --stash",
+    "tooltip": true
   }
 }

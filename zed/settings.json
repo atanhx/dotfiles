@@ -7,8 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git": {
+    "diff_base": "head"
+  },
+  "markdown_preview_code_font_family": "JetBrainsMonoNL Nerd Font",
+  "markdown_preview_font_family": "Adwaita Sans",
+  "terminal": {
+    "font_family": "JetBrainsMonoNL Nerd Font Mono"
+  },
   "cli_default_open_behavior": "existing_window",
-  "proxy": "",
   "project_panel": {
     "dock": "left",
   },
@@ -19,6 +26,7 @@
     "dock": "left",
   },
   "git_panel": {
+    "tree_view": true,
     "dock": "left",
   },
   "agent_servers": {
@@ -48,11 +56,21 @@
     },
   },
   "edit_predictions": {
+    "allow_data_collection": "no",
     "provider": "zed",
     "mode": "subtle",
   },
   "agent": {
+    "notify_when_agent_waiting": "all_screens",
+    "sidebar_side": "right",
+    "thinking_display": "preview",
     "sandbox_permissions": {
+      "write_paths": [
+        {
+          "requested": "/home/um/dev/flutter/bin/cache",
+          "resolved": "/home/um/dev/flutter/bin/cache"
+        }
+      ],
       "network_hosts": [
         "doc.rust-lang.org",
         "cppreference.com",
@@ -61,6 +79,9 @@
     },
     "tool_permissions": {
       "tools": {
+        "move_path": {
+          "default": "allow"
+        },
         "create_directory": {
           "default": "allow"
         },
@@ -87,8 +108,8 @@
     "dock": "right",
     "default_model": {
       "effort": "max",
-      "provider": "zed.dev",
-      "model": "claude-sonnet-5",
+      "provider": "opencode",
+      "model": "zen/deepseek-v4-flash",
       "enable_thinking": true,
     },
     "show_turn_stats": true,
@@ -110,6 +131,12 @@
         "model": "gpt-5.6-sol",
         "enable_thinking": true,
         "effort": "high"
+      },
+      {
+        "provider": "OpenCode Custom",
+        "model": "opencode/deepseek-v4-flash-free",
+        "enable_thinking": true,
+        "effort": "max"
       }
     ],
     "model_parameters": [],
@@ -139,17 +166,11 @@
       "enable_language_server": true,
       "language_servers": ["ruff", "ty"],
       "formatter": "language_server",
-      "inlay_hints": {
-        "enabled": true,
-      },
     },
     "C++": {
       "language_servers": ["clangd"],
       "formatter": "language_server",
       "format_on_save": "on",
-      "inlay_hints": {
-        "enabled": true,
-      },
     },
   },
   "diagnostics": {
@@ -160,10 +181,11 @@
   "colorize_brackets": true,
   "inlay_hints": {
     "show_background": false,
-    "enabled": true,
+    "enabled": false,
   },
   "vim": {
     "toggle_relative_line_numbers": true,
+    "use_system_clipboard": "always",
   },
   "minimap": {
     "show": "always",
@@ -180,7 +202,7 @@
   "text_rendering_mode": "subpixel",
   "ui_font_family": "Adwaita Sans",
   "ui_font_weight": 500.0,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -191,15 +213,15 @@
   "vim_mode": true,
   "icon_theme": {
     "mode": "dark",
-    "light": "VSCode Icons for Zed (Dark Official Icons)",
+    "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
-  "ui_font_size": 18.0,
-  "buffer_font_size": 17.0,
+  "ui_font_size": 20.0,
+  "buffer_font_size": 20.0,
   "theme": {
     "mode": "dark",
-    "light": "One Light",
-    "dark": "Ayu Dark",
+    "light": "macOS Classic Light",
+    "dark": "JetBrains Islands Dark",
   },
   "indent_guides": {
     "enabled": true,

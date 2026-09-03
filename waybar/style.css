@@ -8,9 +8,12 @@
 
 #battery,
 #network,
+#custom-vpn,
+#custom-scratchpad,
 #pulseaudio,
 #backlight,
 #clock,
+#custom-clock,
 #custom-powermenu,
 #tray,
 #power-profiles-daemon {
@@ -34,7 +37,10 @@
 }
 
 #custom-powermenu {
+  font-weight: 400;
   padding-right: 7px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-recording {
@@ -49,10 +55,10 @@
 }
 
 #waybar {
-  font-size: 12px;
-  font-family: JetBrains Mono Nerd Font;
+  font-size: 13px;
+  font-family: "SF Pro Display";
   font-weight: 600;
-  color: #d0d0d0;
+  color: #f8f8f8;
   background: #151515;
   border-bottom: 1px solid #979797;
 }
@@ -60,7 +66,7 @@
 #workspaces button {
   margin: 2px 2px;
   padding: 2px 6px;
-  color: #c5c5c5;
+  color: #f8f8f8;
   border-radius: 5px;
 }
 
@@ -76,13 +82,27 @@
   border: 1px double;
   border-color: #bdbdbd;
   border-radius: 5px;
+  font-weight: 600;
+  font-family: "SF Pro Display";
 }
 
 #workspaces button.urgent {
   color: #6a040f;
 }
 
-#pulseaudio.muted {
+#workspaces .taskbar-window {
+  margin: 0 1px;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+#workspaces .taskbar-window.active {
+  background-color: #1e4a63;
+}
+
+#pulseaudio.muted,
+#pulseaudio.bluetooth.muted
+{
   font-size: 14px;
   background-color: #810411;
 }
@@ -96,7 +116,7 @@
 }
 
 #power-profiles-daemon.balanced {
-  background-color: #2e2e2e;
+  background-color: #1a1a1a;
 }
 
 #power-profiles-daemon.power-saver {
@@ -106,5 +126,37 @@
 #window {
   font-size: 14px;
   font-weight: 400;
-  font-family: JetBrains Mono Nerd Font;
+  font-family: "SF Pro Display";
 }
+
+#custom-vpn.connected {
+  background-color: #1e4a63;
+}
+
+#custom-vpn.disconnected {
+  color: #a0a0a0;
+}
+
+#custom-scratchpad.empty {
+  color: #a0a0a0;
+}
+
+#custom-scratchpad.active {
+  background-color: #1e4a63;
+}
+
+tooltip {
+  background-color: #1a1a1a;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+
+tooltip label {
+  color: #f8f8f8;
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 4px 6px;
+}
+

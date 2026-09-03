@@ -16,11 +16,11 @@ CONFIG_TARGETS=(
     "rofi"
     "nvim"
     "wofi"
+    "yazi"
     "zed"
 )
 
 HOME_TARGETS=(
-    ".tmux.conf"
     ".zshrc"
 )
 

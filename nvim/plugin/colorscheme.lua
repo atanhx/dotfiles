@@ -22,8 +22,7 @@
 -- 		dark = "wave",
 -- 		light = "lotus",
 -- 	},
---
--- vim.cmd("colorscheme kanagawa-wave")
+-- })
 
 -- GRUVBOX THEME ----------------------------------------------------------------
 require("gruvbox-material").setup({
@@ -45,6 +44,9 @@ require("gruvbox-material").setup({
 	},
 	customize = nil,
 })
+
+vim.cmd("colorscheme gruvbox-material")
+
 
 -- ONEDARK THEME ----------------------------------------------------------------
 -- require("onedark").setup({

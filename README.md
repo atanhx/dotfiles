@@ -1,6 +1,6 @@
 # dotfiles
 
-<img src="./assets/example.png" alt="img" align="right" width="400px">
+<img src="./assets/desktop.png" alt="img" align="right" width="400px">
 
 Details about the setup:
 
@@ -10,13 +10,11 @@ Details about the setup:
 - **Browser**: Firefox
 - **Bar**: [waybar](https://github.com/Alexays/Waybar)
 - **Shell Theme**: [Starship](https://starship.rs)
-- **Terminal**: [Alacritty](https://github.com/alacritty/alacritty)
-- **Editor**: [VS Code](https://code.visualstudio.com/) (Everforest Theme from marketplace)
+- **Terminal**: [Kitty](https://github.com/kovidgoyal/kitty)
+- **Editor**: [Zed](https://zed.dev/)
 - **Launcher**: [Rofi](https://github.com/davatorium/rofi)
 - **Notification**: [Dunst](https://github.com/dunst-project/dunst)
 - **Fonts & Other Packages**: See `pkgs.arch.txt` file
-
-More screenshots are under `/assets/` directory.
 
 ### Installation
 
@@ -27,7 +25,7 @@ mkdir -p ~/dev/
 
 cd ~/dev/
 
-git clone https://github.com/<handle>/dotfiles.git
+git clone https://github.com/atanhx/dotfiles.git
 ```
 
 The setup is split into two scripts:
@@ -69,7 +67,7 @@ chmod +x ~/dev/dotfiles/install-conf.sh
 After running this, it will:
 
 - Create symlinks for the current config directories in this repo.
-- Link the home dotfiles currently tracked in this repo, including `.zshrc` and `.tmux.conf`.
+- Link the home dotfiles currently tracked in this repo, including `.zshrc`.
 - Install Oh My Zsh with the official installer if `zsh` and `curl` are available and `~/.oh-my-zsh` does not exist yet.
 - Let the Oh My Zsh installer switch your default login shell to `zsh`.
 - Fix the XDG menu (uses `archlinux-xdg-menu` on Arch).
@@ -83,4 +81,3 @@ You can switch your session and see if it works!
 > **NOTE**
 >
 > You may need to adjust the screen resolution and waybar widgets postion manually as they are _**most**_ likely to change on your device.
-

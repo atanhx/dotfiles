@@ -1,39 +1,30 @@
-# =============================================================================
-# 1. ENVIRONMENT & PATH
-# =============================================================================
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.local/bin/bin:/opt/cuda-11.7/bin:$PATH"
-export PATH="$PATH:$HOME/dev/projects/flutter/bin"
+export PATH="$PATH:$HOME/.local/bin/bin:/opt/cuda-11.7/bin"
+export PATH="$PATH:$HOME/dev/flutter/bin"
 export PATH="$PATH:$HOME/dev/dotfiles/tmux-sessionizer/"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.bun/bin"
 export LD_LIBRARY_PATH="/opt/cuda-11.7/lib64:$LD_LIBRARY_PATH"
 export NVM_DIR="$HOME/.nvm"
-export EDITOR="nvim"
+export PATH="$PATH:$HOME/.opencode/bin"
+export PATH="$PATH:$HOME.lmstudio/bin"
 export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
-export CHROME_EXECUTABLE="google-chrome-stable"
+export JAVA_HOME=/opt/android-studio/jbr
+export ANDROID_HOME="$HOME/Android/Sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 
-# =============================================================================
-# 2. OH-MY-ZSH CONFIG
-# =============================================================================
-# ZSH_THEME="robbyrussell"
+export EDITOR="nvim"
+export CHROME_EXECUTABLE="google-chrome-stable"
 
 plugins=()
 
-# zsh-completion plugin 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
-# =============================================================================
-# 3. SETTINGS & PREFERENCES
-# =============================================================================
 setopt HIST_IGNORE_SPACE
 
-# =============================================================================
-# 4. ALIASES
-# =============================================================================
-# Navigation & Files
 alias cd='z'
 alias ls='ls -la'
 alias l='ls -la'
@@ -41,26 +32,19 @@ alias ll='ls -la'
 alias x='exit'
 alias open='xdg-open'
 alias deepclean='yay -Rns $(pacman -Qtdq) --noconfirm; yay -Scc --noconfirm'
-
-# Editors & Viewing
 alias n='nvim .'
 alias v='nvim .'
 alias vim='nvim .'
 alias cat='bat -P --plain'
-
-# Tools
 alias calc='qalc'
 alias btop='btop --force-utf'
 alias exiftool='/usr/bin/vendor_perl/exiftool'
 alias tmux='tmux -u'
 alias jrnl=" jrnl"
 alias ytdirectdownload='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --recode-video mkv --embed-thumbnail --write-subs --embed-subs "$@"'
-
-# Dev / System
-alias base_env='source /home/um/dev/projects/base_env/bin/activate'
+alias activate='source $HOME/dev/base-env/bin/activate'
 alias mirror_list_update='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
-
-# Git Aliases
+alias google-chrome='google-chrome-stable'
 alias gita='git add'
 alias gitaa='git add --all'
 alias gitb='git branch'
@@ -76,9 +60,6 @@ alias gitp='git push'
 alias gitpl='git pull'
 alias gits='git status'
 
-# =============================================================================
-# 5. FUNCTIONS
-# =============================================================================
 wsync() {
     (
         sync &
@@ -95,10 +76,6 @@ wsync() {
     )
 }
 
-# =============================================================================
-# 6. TOOL INITIALIZATION
-# =============================================================================
-
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
@@ -108,23 +85,10 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# opencode
-export PATH=/home/um/.opencode/bin:$PATH
-
 bindkey -s '^f' 'tmux-sessionizer\n'
 
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
-# load env
-if [ -f "$HOME/dev/.env" ]; then
-  set -a
-  source "$HOME/dev/.env"
-  set +a
-fi
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/um/.lmstudio/bin"
-# End of LM Studio CLI section
-
+xhost +local: >/dev/null 2>&1

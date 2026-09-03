@@ -1,15 +1,8 @@
--- Hyprland 0.56 Lua config
--- Migrated from hyprland.conf (superseded; see git history)
-
 local mainMod = "SUPER"
 local home = os.getenv("HOME")
 
 local terminal = "kitty"
 local fileManager = "dolphin"
-
-------------------
--- MONITOR ------
-------------------
 
 hl.monitor({
 	output = "eDP-1",
@@ -17,10 +10,6 @@ hl.monitor({
 	position = "0x0",
 	scale = 1,
 })
-
--------------------
--- WORKSPACES ----
--------------------
 
 hl.workspace_rule({ workspace = "1", monitor = "eDP-1", default = true })
 hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
@@ -31,10 +20,6 @@ hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "8", monitor = "eDP-1" })
 hl.workspace_rule({ workspace = "9", monitor = "eDP-1" })
-
---------------------
--- ENV ------------
---------------------
 
 hl.env("AQ_DRM_DEVICES", "/dev/dri/card2:/dev/dri/card1")
 hl.env("PYTHONDONTWRITEBYTECODE", "1")
@@ -51,10 +36,6 @@ hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("NVD_BACKEND", "direct")
 
----------------------
--- AUTOSTART -------
----------------------
-
 hl.on("hyprland.start", function()
 	hl.exec_cmd(
 		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
@@ -62,11 +43,12 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type text --watch cliphist store -max-items 100000")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store -max-items 100000")
 	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets,pkcs11,ssh")
+	hl.exec_cmd('echo -n "" | gnome-keyring-daemon --unlock')
 	hl.exec_cmd("dunst")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("/usr/lib/hyprpolkitagent")
-	hl.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/hypr")
-	hl.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/launch_waybar")
+	hl.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/hypr.sh")
+	hl.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/launch_waybar.sh")
 	hl.exec_cmd(
 		'i=0; while [ "$i" -lt 50 ]; do busctl --user get-property org.kde.StatusNotifierWatcher /StatusNotifierWatcher org.kde.StatusNotifierWatcher IsStatusNotifierHostRegistered >/dev/null 2>&1 && break; sleep 0.2; i=$((i+1)); done; kdeconnect-indicator & nm-applet --indicator & blueman-applet &'
 	)
@@ -74,10 +56,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("kbuildsycoca6 --noincremental")
 	hl.exec_cmd("xhost +si:localuser:root")
 end)
-
---------------
--- INPUT ----
---------------
 
 hl.config({
 	input = {
@@ -96,10 +74,6 @@ hl.config({
 	},
 })
 
------------------
--- GENERAL -----
------------------
-
 hl.config({
 	general = {
 		gaps_in = 3,
@@ -115,10 +89,6 @@ hl.config({
 	},
 })
 
----------------
--- MISC ------
----------------
-
 hl.config({
 	misc = {
 		disable_hyprland_logo = true,
@@ -132,10 +102,6 @@ hl.config({
 		focus_on_activate = true,
 	},
 })
-
--------------------
--- DECORATION ----
--------------------
 
 hl.config({
 	decoration = {
@@ -153,10 +119,6 @@ hl.config({
 		},
 	},
 })
-
--------------------
--- ANIMATIONS ----
--------------------
 
 hl.config({
 	animations = {
@@ -187,10 +149,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almo
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 
---------------
--- DWINDLE --
---------------
-
 hl.config({
 	dwindle = {
 		default_split_ratio = 1,
@@ -203,29 +161,17 @@ hl.config({
 	},
 })
 
--------------
--- BINDS ----
--------------
-
 hl.config({
 	binds = {
 		workspace_back_and_forth = true,
 	},
 })
 
-------------------
--- XWAYLAND -----
-------------------
-
 hl.config({
 	xwayland = {
 		use_nearest_neighbor = true,
 	},
 })
-
----------------
--- CURSOR -----
----------------
 
 hl.config({
 	cursor = {
@@ -235,16 +181,8 @@ hl.config({
 	},
 })
 
----------------
--- GESTURES ---
----------------
-
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 hl.gesture({ fingers = 4, direction = "up", action = "fullscreen" })
-
-------------------
--- WINDOW RULES -
-------------------
 
 hl.window_rule({
 	name = "resize-and-float",
@@ -292,10 +230,6 @@ hl.window_rule({
 	opacity = "0 override",
 })
 
-------------------
--- KEYBINDS -----
-------------------
-
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("qalculate-qt"))
@@ -308,7 +242,7 @@ hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("hyprpicker -a -n"))
 hl.bind(mainMod .. " + TAB", hl.dsp.focus({ last = true }))
 hl.bind(mainMod .. " + Q", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/capture.sh"))
-hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd("grimshot savecopy screen"))
+hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd("grimshot --notify savecopy screen"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimshot savecopy area"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("hyprvoice toggle"))
 hl.bind(

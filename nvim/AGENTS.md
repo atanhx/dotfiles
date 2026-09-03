@@ -1,11 +1,13 @@
 # Neovim Configuration Reference
 
+For LLMs to use as reference doc.
+
 ## Overview
 
 - **Neovim version**: 0.12.2
 - **Plugin system**: vim-pack (built-in `pack/myplugins/start/`)
 - **Config location**: `~/dev/dotfiles/nvim/`
-- **Plugin manager**: None (plugins installed via `setup_pack.sh` as git clones)
+- **Plugin manager**: None (plugins installed via `plugins.sh` as git clones)
 - **Boot time**: All plugins load at startup (no lazy loading)
 
 ## Directory Structure
@@ -17,8 +19,9 @@ nvim/
     remap.lua                  # Global keymaps and leader keys
     set.lua                    # General options/settings
   plugin/                      # Auto-sourced by Neovim at startup
-    colorscheme.lua            # kanagawa.nvim
+    colorscheme.lua            # kanagawa.nvim / gruvbox-material
     core.lua                   # Autocmds, ui2
+    bufferline.lua             # bufferline.nvim (buffer tabs, offset, close buttons)
     mason.lua                  # Mason + LSP configs
     nvimcmp.lua                # nvim-cmp (autocompletion)
     snacker.lua                # snacks.nvim (picker, notifier, dashboard, etc.)
@@ -37,8 +40,9 @@ nvim/
     uv.lua                     # uv.nvim (Python venv management)
     whichkey.lua               # which-key.nvim
     yazi.lua                   # yazi.nvim
+    undotree.lua               # mbbill/undotree (undo history visualization)
   pack/myplugins/start/        # All plugins cloned here (gitignored)
-  setup_pack.sh                # Script to clone all plugins
+  plugins.sh                # Script to clone and update plugins
 ```
 
 ## Plugin Details
@@ -70,7 +74,8 @@ Leader: `<Space>`, LocalLeader: `\`
 
 **Window Management**
 - `vs` - Vertical split
-- `<C-h/j/k/l>` - Navigate splits
+- `<C-h/j/k/l>` - Navigate splits (normal and terminal mode)
+- `<C-w>h/j/k/l` - Navigate splits from terminal mode
 - `<C-Up/Down/Left/Right>` - Resize splits
 
 **Clipboard**
@@ -94,7 +99,7 @@ Leader: `<Space>`, LocalLeader: `\`
 **Other**
 - `<leader>qa` - Save all and quit
 - `i <C-c>` / `jk` - Exit insert mode
-- `i <C-H>` - Delete word backwards
+- `i <C-BS>` / `<M-BS>` / `<C-h>` - Delete word backwards
 - `<C-a>` - Select all
 
 ### set.lua (Options)
@@ -285,7 +290,7 @@ Performance: max_view_entries=7, completeopt=menu,menuone,noinsert
 - `<leader>gB` (n/v) - Git browse
 - `<leader>gg` - Lazygit
 - `<leader>un` - Dismiss all notifications
-- `<c-/>` / `<c-_>` - Terminal
+- `<c-/>` / `<c-_>` (n/t) - Toggle terminal
 - `]]` / `[[` (n/t) - Next/prev word reference
 - `<leader>N` - Neovim news
 
@@ -333,6 +338,21 @@ Uses telescope.nvim for the picker UI.
 - `<C-S-P>` / `<C-S-N>` - Previous/next mark
 
 **Workaround**: `harpoon.save()` wrapped in `pcall()` to prevent json_encode crash on VimLeave.
+
+### bufferline.lua (bufferline.nvim)
+
+**Buffer Tabs**:
+- Displays open buffers with file icons (`nvim-web-devicons`), modified indicator (`●`), diagnostics indicator (``/``), and individual clickable close buttons (`󰅖`).
+- **NvimTree Offset**: Tabs start cleanly to the right of `nvim-tree` with `"File Explorer"` title bar over the tree.
+- **Clickable New Buffer**: Custom clickable `` (`+`) icon on the right to open an empty buffer (`:enew`).
+- **Mouse support**: Left-click to switch buffer, middle-click or right-click to close buffer via `Snacks.bufdelete`.
+
+**Keymaps**:
+- `]b` / `<leader>bn` - Next buffer
+- `[b` / `<leader>bp` - Previous buffer
+- `<leader>bo` - Close other buffers
+- `<leader>br` - Close buffers to right
+- `<leader>bl` - Close buffers to left
 
 ### lualine.lua
 
@@ -388,23 +408,34 @@ Group labels for category-prefix system: Buffer, Code, Debug, Find, Git, Harpoon
 
 ### yazi.lua (yazi.nvim)
 
-File manager integration. Does NOT auto-open for directories (`open_for_directories=false`).
+File manager integration. Does NOT open for directories (`open_for_directories=false`).
 
 **Keymaps**:
-- `<leader>yy` (n/v) - Open yazi at current file
+- `<leader>-` / `<leader>yy` (n/v) - Open yazi at current file / folder
 - `<leader>yc` - Open yazi in cwd
 - `<c-up>` - Resume last yazi session
+
+### undotree.lua (mbbill/undotree)
+
+Configures undotree window settings:
+- Split width: `15` (compact)
+- Diff panel height: `8`
+- Auto-focus on toggle: enabled
+- Help header banner: hidden (`HelpLine = 0`)
+
+**Keymaps**:
+- `<leader>ut` - Toggle undotree (set in remap.lua)
 
 ### uv.lua (uv.nvim)
 
 Python venv/project management. Picker integration with snacks.nvim.
 Wrapped in pcall (module name may vary).
 
-## Installed Plugins (34 total)
+## Installed Plugins (35 total)
 
 All at `pack/myplugins/start/`:
 
-kanagawa.nvim, nvim-cmp, cmp-nvim-lsp, cmp-path, cmp_luasnip, LuaSnip,
+kanagawa.nvim, gruvbox-material, bufferline.nvim, nvim-cmp, cmp-nvim-lsp, cmp-path, cmp_luasnip, LuaSnip,
 conform.nvim, gitsigns.nvim, harpoon, lualine.nvim, mason.nvim,
 mason-tool-installer.nvim, mason-nvim-dap.nvim, nvim-colorizer.lua,
 nvim-tree.lua, nvim-web-devicons, nvim-dap, nvim-dap-ui, nvim-nio,
@@ -415,5 +446,5 @@ yazi.nvim
 
 ## Bootstrap
 
-Run `setup_pack.sh` to clone all plugins from scratch. Requires git.
+Run `plugins.sh` to clone missing and update existing plugins. Requires git.
 `.gitignore` excludes `nvim/pack/` and `db_ui/`.
