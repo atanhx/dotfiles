@@ -51,7 +51,7 @@ rofi_theme_override() {
             printf '%s' "window { width: 340px; } listview { lines: 8; } ${dmenu_list_theme} $(rofi_heading_only_theme)"
             ;;
         emoji)
-            printf '%s' "window { width: 580px; } listview { lines: 9; } ${dmenu_list_theme}"
+            printf '%s' "window { width: 440px; } listview { lines: 8; } element { padding: 8px 10px; children: [ element-text ]; } element-text { font: \"JetBrains Mono Nerd Font 16\"; horizontal-align: 0.0; }"
             ;;
         *)
             printf 'Unknown rofi preset: %s\n' "$preset" >&2
