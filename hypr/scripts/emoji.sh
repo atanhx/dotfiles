@@ -64,7 +64,7 @@ fi
 # Enter -> exit code 0 (Copy & Type)
 # Alt+Enter -> exit code 10 (Copy Only)
 set +e
-selected_line=$(collect_emojis | rofi_run emoji -dmenu -p "󰞅  Emoji" -i -no-custom -kb-custom-1 "Alt+Return")
+selected_line=$(collect_emojis | rofi_run emoji -dmenu -matching normal -display-columns 1,2 -display-column-separator $'\t' -p "󰞅  Emoji" -i -no-custom -kb-custom-1 "Alt+Return")
 rofi_exit_code=$?
 set -e
 
