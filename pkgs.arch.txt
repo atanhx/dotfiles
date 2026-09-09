@@ -9,6 +9,7 @@ rofi
 ripgrep
 fzf
 wl-clipboard
+wtype
 wf-recorder
 pipewire
 wireplumber
