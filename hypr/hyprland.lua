@@ -237,6 +237,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/l
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/powermenu.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/clipboard.sh"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/shell_history.sh"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(home .. "/dev/dotfiles/hypr/scripts/emoji.sh"))
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("hyprpicker -a -n"))
 hl.bind(mainMod .. " + TAB", hl.dsp.focus({ last = true }))

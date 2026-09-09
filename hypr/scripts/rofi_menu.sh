@@ -50,6 +50,9 @@ rofi_theme_override() {
         vpn)
             printf '%s' "window { width: 340px; } listview { lines: 8; } ${dmenu_list_theme} $(rofi_heading_only_theme)"
             ;;
+        emoji)
+            printf '%s' "window { width: 580px; } listview { lines: 9; } ${dmenu_list_theme}"
+            ;;
         *)
             printf 'Unknown rofi preset: %s\n' "$preset" >&2
             return 1
